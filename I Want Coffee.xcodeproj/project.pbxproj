@@ -40,8 +40,8 @@
 		66A770701BB4AA9100DD7A1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		66A770721BB4AA9100DD7A1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		66A770731BB4AA9100DD7A1B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		66A770751BB4AA9100DD7A1B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		66A770761BB4AA9100DD7A1B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		66A770751BB4AA9100DD7A1B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = "View Controllers/ViewController.h"; sourceTree = "<group>"; };
+		66A770761BB4AA9100DD7A1B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "View Controllers/ViewController.m"; sourceTree = "<group>"; };
 		66A770791BB4AA9100DD7A1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		66A7707B1BB4AA9100DD7A1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66A7707E1BB4AA9100DD7A1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -91,6 +91,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		66959EB81BB4B4DD00B4A1E5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				66A770751BB4AA9100DD7A1B /* ViewController.h */,
+				66A770761BB4AA9100DD7A1B /* ViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		66A770631BB4AA9100DD7A1B = {
 			isa = PBXGroup;
 			children = (
@@ -118,8 +127,7 @@
 			children = (
 				66A770721BB4AA9100DD7A1B /* AppDelegate.h */,
 				66A770731BB4AA9100DD7A1B /* AppDelegate.m */,
-				66A770751BB4AA9100DD7A1B /* ViewController.h */,
-				66A770761BB4AA9100DD7A1B /* ViewController.m */,
+				66959EB81BB4B4DD00B4A1E5 /* View Controllers */,
 				66A770781BB4AA9100DD7A1B /* Main.storyboard */,
 				66A7707B1BB4AA9100DD7A1B /* Assets.xcassets */,
 				66A7707D1BB4AA9100DD7A1B /* LaunchScreen.storyboard */,
