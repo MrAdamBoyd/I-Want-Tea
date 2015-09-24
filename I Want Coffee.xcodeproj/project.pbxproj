@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */; settings = {ASSET_TAGS = (); }; };
 		66A770711BB4AA9100DD7A1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770701BB4AA9100DD7A1B /* main.m */; };
 		66A770741BB4AA9100DD7A1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770731BB4AA9100DD7A1B /* AppDelegate.m */; };
 		66A770771BB4AA9100DD7A1B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770761BB4AA9100DD7A1B /* ViewController.m */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		66959EBC1BB4B57C00B4A1E5 /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentUser.h; path = Models/CurrentUser.h; sourceTree = "<group>"; };
+		66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentUser.m; path = Models/CurrentUser.m; sourceTree = "<group>"; };
 		66A7706C1BB4AA9100DD7A1B /* I Want Coffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I Want Coffee.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66A770701BB4AA9100DD7A1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		66A770721BB4AA9100DD7A1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -100,6 +103,15 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		66959EB91BB4B52400B4A1E5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				66959EBC1BB4B57C00B4A1E5 /* CurrentUser.h */,
+				66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		66A770631BB4AA9100DD7A1B = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +139,7 @@
 			children = (
 				66A770721BB4AA9100DD7A1B /* AppDelegate.h */,
 				66A770731BB4AA9100DD7A1B /* AppDelegate.m */,
+				66959EB91BB4B52400B4A1E5 /* Models */,
 				66959EB81BB4B4DD00B4A1E5 /* View Controllers */,
 				66A770781BB4AA9100DD7A1B /* Main.storyboard */,
 				66A7707B1BB4AA9100DD7A1B /* Assets.xcassets */,
@@ -339,6 +352,7 @@
 			files = (
 				66A770771BB4AA9100DD7A1B /* ViewController.m in Sources */,
 				66A770741BB4AA9100DD7A1B /* AppDelegate.m in Sources */,
+				66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */,
 				66A770711BB4AA9100DD7A1B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
