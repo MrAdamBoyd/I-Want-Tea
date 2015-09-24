@@ -1,0 +1,5 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/EAIntroView" "${PODS_ROOT}/Headers/Public/EARestrictedScrollView"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/EAIntroView" -isystem "${PODS_ROOT}/Headers/Public/EARestrictedScrollView"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"EAIntroView" -l"EARestrictedScrollView"
+PODS_ROOT = ${SRCROOT}/Pods
