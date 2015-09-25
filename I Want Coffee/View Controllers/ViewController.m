@@ -32,7 +32,7 @@
     //Showing the intro views
     [self setUpAndShowIntroViews];
     
-    [[IWCDataController sharedController] setLocationDelegate:self];
+    [[IWCDataController sharedController] setIwcDelegate:self];
     
     self.view.backgroundColor = [UIColor tiltDarkBlue];
     
@@ -150,12 +150,18 @@
 }
 
 #pragma mark IWCLocationListenerDelegate
-- (void)updatedLocation:(CLLocation *)newLocation {
-//    //If we have (no location or the distance from the new location to the saved one is more than 20 meters) and the accuracy is less than 20 meters
-//    CLLocation *userLocation = [[IWCDataController sharedController] savedLocation];
-//    if ((!userLocation || [userLocation distanceFromLocation:newLocation] > 20) && newLocation.horizontalAccuracy < 20) {
-//        [[IWCDataController sharedController] setSavedLocation:newLocation];
-//    }
+- (void)addShopsToScreen:(NSArray<IWCShop *> *)shops {
+    for (IWCShop *shop in shops) {
+        CLLocationCoordinate2D shopPoint;
+        shopPoint.latitude = [shop.lat floatValue];
+        shopPoint.longitude = [shop.lon floatValue];
+        
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        [annotation setCoordinate:shopPoint];
+        [annotation setTitle:shop.name];
+        [annotation setSubtitle:shop.addressArray[0]];
+        [mapView addAnnotation:annotation];
+    }
 }
 
 @end

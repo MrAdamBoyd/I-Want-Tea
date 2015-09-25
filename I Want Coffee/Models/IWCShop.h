@@ -10,4 +10,16 @@
 
 @interface IWCShop : NSObject
 
+@property (nonatomic, strong) NSString *name;
+
+@property (nonatomic, strong) NSString *phoneNumber;
+@property (nonatomic, strong) NSString *twitter;
+
+@property (nonatomic, strong) NSString *formattedAddress;
+@property (nonatomic, strong) NSArray<NSString *> *addressArray;
+@property (nonatomic, strong) NSNumber *lat;
+@property (nonatomic, strong) NSNumber *lon;
+
+@property (nonatomic, strong) NSString *menuURL;
+
 @end

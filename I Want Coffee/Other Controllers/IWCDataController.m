@@ -10,13 +10,14 @@
 
 #define kCurrentUserKey @"kCurrentUserKey"
 
+
 #define kFSVersion @"20130815"
 
 @implementation IWCDataController
 
 @synthesize currentUser;
 @synthesize locationManager;
-@synthesize locationDelegate;
+@synthesize iwcDelegate;
 @synthesize savedLocation;
 
 - (id)init {
@@ -119,6 +120,10 @@
         
         FoursquareResponseParser *parser = [[FoursquareResponseParser alloc] init];
         NSArray *shops = [parser parseAPIResponse:apiResponse];
+        
+        if (self.iwcDelegate) {
+            [self.iwcDelegate addShopsToScreen:shops];
+        }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);

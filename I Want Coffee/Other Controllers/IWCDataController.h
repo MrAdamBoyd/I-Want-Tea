@@ -14,7 +14,7 @@
 
 @protocol IWCLocationListenerDelegate <NSObject>
 
-- (void)updatedLocation:(CLLocation *)newLocation;
+- (void)addShopsToScreen:(NSArray<IWCShop *> *)shops;
 
 @end
 
@@ -27,7 +27,7 @@
 @property (nonatomic, retain) CurrentUser *currentUser;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property(nonatomic, retain) CLLocation *savedLocation;
-@property (assign) id<IWCLocationListenerDelegate> locationDelegate;
+@property (assign) id<IWCLocationListenerDelegate> iwcDelegate;
 
 + (id)sharedController;
 
