@@ -25,7 +25,6 @@
 
 @synthesize mapView;
 @synthesize navBar;
-@synthesize locationManager;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -65,6 +64,7 @@
     mapView = [[MKMapView alloc] init];
     [self.view addSubview:mapView];
     [mapView setTranslatesAutoresizingMaskIntoConstraints:false];
+    [mapView setUserInteractionEnabled:NO];
     
     //0px from nav bar bottom, 0px from left, right, 0px from bottom
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mapView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:navBar attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
@@ -135,6 +135,8 @@
     }
     [[[IWCDataController sharedController] locationManager] startUpdatingLocation];
     
+    [mapView setUserTrackingMode:MKUserTrackingModeFollow];
+    
     //Animating the views in
     [UIView animateWithDuration:1.f animations:^{
         navBar.alpha = 1;
@@ -149,7 +151,11 @@
 
 #pragma mark IWCLocationListenerDelegate
 - (void)updatedLocation:(CLLocation *)newLocation {
-    NSLog(@"LOCATION: %@:", newLocation);
+    //If we have (no location or the distance from the new location to the saved one is more than 20 meters) and the accuracy is less than 20 meters
+    CLLocation *userLocation = [[IWCDataController sharedController] savedLocation];
+    if ((!userLocation || [userLocation distanceFromLocation:newLocation] > 20) && newLocation.horizontalAccuracy < 20) {
+        [[IWCDataController sharedController] setSavedLocation:newLocation];
+    }
 }
 
 @end

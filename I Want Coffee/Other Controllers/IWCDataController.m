@@ -15,6 +15,7 @@
 @synthesize currentUser;
 @synthesize locationManager;
 @synthesize locationDelegate;
+@synthesize savedLocation;
 
 - (id)init {
     if (self == [super init]) {

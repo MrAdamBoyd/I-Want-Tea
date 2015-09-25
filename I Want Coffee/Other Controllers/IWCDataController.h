@@ -24,6 +24,7 @@
 
 @property (nonatomic, retain) CurrentUser *currentUser;
 @property (nonatomic, retain) CLLocationManager *locationManager;
+@property(nonatomic, retain) CLLocation *savedLocation;
 @property (assign) id<IWCLocationListenerDelegate> locationDelegate;
 
 + (id)sharedController;
