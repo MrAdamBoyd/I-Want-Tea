@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CurrentUser : NSObject
+@interface CurrentUser : NSObject <NSCoding>
+
+@property(nonatomic, assign) BOOL firstTimeOpeningApp;
 
 @end

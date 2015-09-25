@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */; settings = {ASSET_TAGS = (); }; };
+		66959EC11BB4B9A600B4A1E5 /* IWCDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959EC01BB4B9A600B4A1E5 /* IWCDataController.m */; settings = {ASSET_TAGS = (); }; };
+		66959EC61BB4D33400B4A1E5 /* Coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 66959EC51BB4D33400B4A1E5 /* Coffee.png */; settings = {ASSET_TAGS = (); }; };
+		66959F0A1BB4D55100B4A1E5 /* CoffeeArt.png in Resources */ = {isa = PBXBuildFile; fileRef = 66959F091BB4D55100B4A1E5 /* CoffeeArt.png */; settings = {ASSET_TAGS = (); }; };
+		66959F0E1BB4D62700B4A1E5 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959F0D1BB4D62700B4A1E5 /* UIImage+ImageEffects.m */; settings = {ASSET_TAGS = (); }; };
 		66A770711BB4AA9100DD7A1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770701BB4AA9100DD7A1B /* main.m */; };
 		66A770741BB4AA9100DD7A1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770731BB4AA9100DD7A1B /* AppDelegate.m */; };
 		66A770771BB4AA9100DD7A1B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770761BB4AA9100DD7A1B /* ViewController.m */; };
@@ -39,6 +43,12 @@
 /* Begin PBXFileReference section */
 		66959EBC1BB4B57C00B4A1E5 /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentUser.h; path = Models/CurrentUser.h; sourceTree = "<group>"; };
 		66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentUser.m; path = Models/CurrentUser.m; sourceTree = "<group>"; };
+		66959EBF1BB4B9A600B4A1E5 /* IWCDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCDataController.h; path = "Other Controllers/IWCDataController.h"; sourceTree = "<group>"; };
+		66959EC01BB4B9A600B4A1E5 /* IWCDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCDataController.m; path = "Other Controllers/IWCDataController.m"; sourceTree = "<group>"; };
+		66959EC51BB4D33400B4A1E5 /* Coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coffee.png; sourceTree = "<group>"; };
+		66959F091BB4D55100B4A1E5 /* CoffeeArt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CoffeeArt.png; sourceTree = "<group>"; };
+		66959F0C1BB4D62700B4A1E5 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "Categories/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		66959F0D1BB4D62700B4A1E5 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "Categories/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		66A7706C1BB4AA9100DD7A1B /* I Want Coffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I Want Coffee.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66A770701BB4AA9100DD7A1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		66A770721BB4AA9100DD7A1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -112,6 +122,24 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		66959EC21BB4B9AA00B4A1E5 /* Other Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				66959EBF1BB4B9A600B4A1E5 /* IWCDataController.h */,
+				66959EC01BB4B9A600B4A1E5 /* IWCDataController.m */,
+			);
+			name = "Other Controllers";
+			sourceTree = "<group>";
+		};
+		66959F0B1BB4D61D00B4A1E5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				66959F0C1BB4D62700B4A1E5 /* UIImage+ImageEffects.h */,
+				66959F0D1BB4D62700B4A1E5 /* UIImage+ImageEffects.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		66A770631BB4AA9100DD7A1B = {
 			isa = PBXGroup;
 			children = (
@@ -139,7 +167,9 @@
 			children = (
 				66A770721BB4AA9100DD7A1B /* AppDelegate.h */,
 				66A770731BB4AA9100DD7A1B /* AppDelegate.m */,
+				66959F0B1BB4D61D00B4A1E5 /* Categories */,
 				66959EB91BB4B52400B4A1E5 /* Models */,
+				66959EC21BB4B9AA00B4A1E5 /* Other Controllers */,
 				66959EB81BB4B4DD00B4A1E5 /* View Controllers */,
 				66A770781BB4AA9100DD7A1B /* Main.storyboard */,
 				66A7707B1BB4AA9100DD7A1B /* Assets.xcassets */,
@@ -153,6 +183,8 @@
 		66A7706F1BB4AA9100DD7A1B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				66959EC51BB4D33400B4A1E5 /* Coffee.png */,
+				66959F091BB4D55100B4A1E5 /* CoffeeArt.png */,
 				66A770701BB4AA9100DD7A1B /* main.m */,
 			);
 			name = "Supporting Files";
@@ -291,6 +323,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				66A7707F1BB4AA9100DD7A1B /* LaunchScreen.storyboard in Resources */,
+				66959F0A1BB4D55100B4A1E5 /* CoffeeArt.png in Resources */,
+				66959EC61BB4D33400B4A1E5 /* Coffee.png in Resources */,
 				66A7707C1BB4AA9100DD7A1B /* Assets.xcassets in Resources */,
 				66A7707A1BB4AA9100DD7A1B /* Main.storyboard in Resources */,
 			);
@@ -350,7 +384,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66959EC11BB4B9A600B4A1E5 /* IWCDataController.m in Sources */,
 				66A770771BB4AA9100DD7A1B /* ViewController.m in Sources */,
+				66959F0E1BB4D62700B4A1E5 /* UIImage+ImageEffects.m in Sources */,
 				66A770741BB4AA9100DD7A1B /* AppDelegate.m in Sources */,
 				66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */,
 				66A770711BB4AA9100DD7A1B /* main.m in Sources */,
@@ -496,6 +532,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "I Want Coffee/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Adam-Boyd.I-Want-Coffee";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -508,6 +545,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "I Want Coffee/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Adam-Boyd.I-Want-Coffee";
 				PRODUCT_NAME = "$(TARGET_NAME)";

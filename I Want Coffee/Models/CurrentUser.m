@@ -8,6 +8,33 @@
 
 #import "CurrentUser.h"
 
+#define kFirstTimeOpeningAppKey @"kFirstTimeOpeningAppKey"
+
 @implementation CurrentUser
+
+@synthesize firstTimeOpeningApp;
+
+- (id)init {
+    if (self == [super init]) {
+        firstTimeOpeningApp = YES;
+    }
+    
+    return self;
+}
+
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    //We saved the bool as an NSNumber because BOOL types are not savable with an NSCoder
+    NSNumber *firstTimeOpeningAppNumber = [aDecoder decodeObjectForKey:kFirstTimeOpeningAppKey];
+    firstTimeOpeningApp = firstTimeOpeningAppNumber.boolValue;
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    //First, convert the bool to an NSNumber
+    NSNumber *firstTimeOpeningAppNumber = [[NSNumber alloc] initWithBool:firstTimeOpeningApp];
+    [aCoder encodeObject:firstTimeOpeningAppNumber forKey:kFirstTimeOpeningAppKey];
+}
 
 @end

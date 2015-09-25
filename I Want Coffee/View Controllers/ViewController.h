@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EAIntroView.h"
+#import "IWCDataController.h"
 
-@interface ViewController : UIViewController
-
+@interface ViewController : UIViewController <EAIntroDelegate>
 
 @end
 
