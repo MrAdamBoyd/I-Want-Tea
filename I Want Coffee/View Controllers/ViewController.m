@@ -48,7 +48,10 @@
         page1.descPositionY = kIntroViewDescY;
         page1.bgImage = kIntroPage1Image;
         [introViewArray addObject:page1];
-        
+    }
+    
+    //If we don't have authorization status, show the page to request it
+    if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse) {
         //Asking for permission for GPS while using the app
         EAIntroPage *page2 = [[EAIntroPage alloc] init];
         page2.title = @"GPS Usage";
@@ -74,6 +77,8 @@
 #pragma mark EAIntroDelegate
 - (void)introDidFinish:(EAIntroView *)introView {
     [[IWCDataController sharedController] setUserFirstTimeOpeningApp:NO];
+    [[[IWCDataController sharedController] locationManager] requestWhenInUseAuthorization];
+    [[[IWCDataController sharedController] locationManager] startUpdatingLocation];
 }
 
 #pragma mark StatusBarStyle

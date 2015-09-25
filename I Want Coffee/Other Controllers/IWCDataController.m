@@ -13,9 +13,11 @@
 @implementation IWCDataController
 
 @synthesize currentUser;
+@synthesize locationManager;
 
 - (id)init {
     if (self == [super init]) {
+        //Getting the current user
         NSData *unarchivedObject = [[NSUserDefaults standardUserDefaults] objectForKey:kCurrentUserKey];
         CurrentUser *user;
         
@@ -25,12 +27,12 @@
             //User doesn't exist, create one
             user = [[CurrentUser alloc] init];
         }
-        
-        printf("HERE");
-        
         currentUser = user;
         
         [self saveCurrentUser];
+        
+        //Setting up the CLLocationManager
+        locationManager = [[CLLocationManager alloc] init];
     }
     
     return self;
@@ -62,6 +64,11 @@
 - (void)setUserFirstTimeOpeningApp:(BOOL) firstTime {
     currentUser.firstTimeOpeningApp = firstTime;
     [self saveCurrentUser];
+}
+
+#pragma mark CLLocationManagerDelegate
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    NSLog(@"%@", [locations lastObject]);
 }
 
 @end

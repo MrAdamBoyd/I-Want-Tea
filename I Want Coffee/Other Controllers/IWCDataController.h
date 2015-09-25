@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "CurrentUser.h"
+@import CoreLocation;
 
-@interface IWCDataController : NSObject {
+@interface IWCDataController : NSObject <CLLocationManagerDelegate> {
     CurrentUser *currentUser;
+    CLLocationManager *locationManager;
 }
 
 @property (nonatomic, retain) CurrentUser *currentUser;
+@property (nonatomic, retain) CLLocationManager *locationManager;
 
 + (id)sharedController;
 
