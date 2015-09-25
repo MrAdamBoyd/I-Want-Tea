@@ -21,6 +21,8 @@
 		66A7707F1BB4AA9100DD7A1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66A7707D1BB4AA9100DD7A1B /* LaunchScreen.storyboard */; };
 		66A7708A1BB4AA9100DD7A1B /* I_Want_CoffeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770891BB4AA9100DD7A1B /* I_Want_CoffeeTests.m */; };
 		66A770951BB4AA9100DD7A1B /* I_Want_CoffeeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770941BB4AA9100DD7A1B /* I_Want_CoffeeUITests.m */; };
+		66AA247F1BB60697004977C2 /* FoursquareResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA247E1BB60697004977C2 /* FoursquareResponseParser.m */; settings = {ASSET_TAGS = (); }; };
+		66AA24821BB606CA004977C2 /* IWCShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24811BB606CA004977C2 /* IWCShop.m */; settings = {ASSET_TAGS = (); }; };
 		843A480F7CECBECB693EF35D /* libPods-I Want Coffee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8DAC26E213E40538E3A384 /* libPods-I Want Coffee.a */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,10 @@
 		66A770901BB4AA9100DD7A1B /* I Want CoffeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "I Want CoffeeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66A770941BB4AA9100DD7A1B /* I_Want_CoffeeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = I_Want_CoffeeUITests.m; sourceTree = "<group>"; };
 		66A770961BB4AA9100DD7A1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66AA247D1BB60697004977C2 /* FoursquareResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoursquareResponseParser.h; path = Functional/FoursquareResponseParser.h; sourceTree = "<group>"; };
+		66AA247E1BB60697004977C2 /* FoursquareResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoursquareResponseParser.m; path = Functional/FoursquareResponseParser.m; sourceTree = "<group>"; };
+		66AA24801BB606CA004977C2 /* IWCShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCShop.h; path = Models/IWCShop.h; sourceTree = "<group>"; };
+		66AA24811BB606CA004977C2 /* IWCShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCShop.m; path = Models/IWCShop.m; sourceTree = "<group>"; };
 		6A8DAC26E213E40538E3A384 /* libPods-I Want Coffee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-I Want Coffee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0BEA991A2F8B8ADCA4D659 /* Pods-I Want Coffee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I Want Coffee.release.xcconfig"; path = "Pods/Target Support Files/Pods-I Want Coffee/Pods-I Want Coffee.release.xcconfig"; sourceTree = "<group>"; };
 		B6E733AAF5536B6A5D18B954 /* Pods-I Want Coffee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I Want Coffee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-I Want Coffee/Pods-I Want Coffee.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +127,8 @@
 			children = (
 				66959EBC1BB4B57C00B4A1E5 /* CurrentUser.h */,
 				66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */,
+				66AA24801BB606CA004977C2 /* IWCShop.h */,
+				66AA24811BB606CA004977C2 /* IWCShop.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -172,6 +180,7 @@
 			children = (
 				66A770721BB4AA9100DD7A1B /* AppDelegate.h */,
 				66A770731BB4AA9100DD7A1B /* AppDelegate.m */,
+				66AA247C1BB60672004977C2 /* Functional */,
 				66959F0B1BB4D61D00B4A1E5 /* Categories */,
 				66959EB91BB4B52400B4A1E5 /* Models */,
 				66959EC21BB4B9AA00B4A1E5 /* Other Controllers */,
@@ -211,6 +220,15 @@
 				66A770961BB4AA9100DD7A1B /* Info.plist */,
 			);
 			path = "I Want CoffeeUITests";
+			sourceTree = "<group>";
+		};
+		66AA247C1BB60672004977C2 /* Functional */ = {
+			isa = PBXGroup;
+			children = (
+				66AA247D1BB60697004977C2 /* FoursquareResponseParser.h */,
+				66AA247E1BB60697004977C2 /* FoursquareResponseParser.m */,
+			);
+			name = Functional;
 			sourceTree = "<group>";
 		};
 		9AD179ECC37BD118FB2C5AEB /* Pods */ = {
@@ -393,8 +411,10 @@
 				66A770771BB4AA9100DD7A1B /* ViewController.m in Sources */,
 				66959F0E1BB4D62700B4A1E5 /* UIImage+ImageEffects.m in Sources */,
 				66A770741BB4AA9100DD7A1B /* AppDelegate.m in Sources */,
+				66AA24821BB606CA004977C2 /* IWCShop.m in Sources */,
 				66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */,
 				66A770711BB4AA9100DD7A1B /* main.m in Sources */,
+				66AA247F1BB60697004977C2 /* FoursquareResponseParser.m in Sources */,
 				66959F111BB4EB1400B4A1E5 /* UIColor+IWCColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

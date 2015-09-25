@@ -19,13 +19,27 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "I Want Coffee/View Controllers/ViewController.m"
-            timestampString = "464899011.909202"
+            filePath = "I Want Coffee/Other Controllers/IWCDataController.m"
+            timestampString = "464912796.054253"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "-locationManager:didChangeAuthorizationStatus:"
+            startingLineNumber = "131"
+            endingLineNumber = "131">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "I Want Coffee/External/BZFoursquare/BZFoursquare.m"
+            timestampString = "464911184.081213"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "-requestWithPath:HTTPMethod:parameters:delegate:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

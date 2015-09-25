@@ -151,11 +151,11 @@
 
 #pragma mark IWCLocationListenerDelegate
 - (void)updatedLocation:(CLLocation *)newLocation {
-    //If we have (no location or the distance from the new location to the saved one is more than 20 meters) and the accuracy is less than 20 meters
-    CLLocation *userLocation = [[IWCDataController sharedController] savedLocation];
-    if ((!userLocation || [userLocation distanceFromLocation:newLocation] > 20) && newLocation.horizontalAccuracy < 20) {
-        [[IWCDataController sharedController] setSavedLocation:newLocation];
-    }
+//    //If we have (no location or the distance from the new location to the saved one is more than 20 meters) and the accuracy is less than 20 meters
+//    CLLocation *userLocation = [[IWCDataController sharedController] savedLocation];
+//    if ((!userLocation || [userLocation distanceFromLocation:newLocation] > 20) && newLocation.horizontalAccuracy < 20) {
+//        [[IWCDataController sharedController] setSavedLocation:newLocation];
+//    }
 }
 
 @end

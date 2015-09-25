@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CurrentUser.h"
 @import CoreLocation;
+#import "AFNetworking.h"
+#import "FoursquareResponseParser.h"
 
 @protocol IWCLocationListenerDelegate <NSObject>
 
