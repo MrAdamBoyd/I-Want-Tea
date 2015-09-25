@@ -11,7 +11,7 @@
 #import "EAIntroView.h"
 #import "IWCDataController.h"
 
-@interface ViewController : UIViewController <EAIntroDelegate, CLLocationManagerDelegate> {
+@interface ViewController : UIViewController <EAIntroDelegate, CLLocationManagerDelegate, IWCLocationListenerDelegate> {
     MKMapView *mapView;
     UIView *navBar;
 }

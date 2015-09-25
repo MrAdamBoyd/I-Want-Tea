@@ -33,6 +33,8 @@
     //Showing the intro views
     [self setUpAndShowIntroViews];
     
+    [[IWCDataController sharedController] setLocationDelegate:self];
+    
     self.view.backgroundColor = [UIColor tiltDarkBlue];
     
     //Nav bar
@@ -145,9 +147,9 @@
     return UIStatusBarStyleLightContent;
 }
 
-#pragma mark IWCLocationListenerProtocol
-- (void)locationUpdated:(CLLocation *)newLocation {
-    NSLog(@"%@", newLocation);
+#pragma mark IWCLocationListenerDelegate
+- (void)updatedLocation:(CLLocation *)newLocation {
+    NSLog(@"LOCATION: %@:", newLocation);
 }
 
 @end

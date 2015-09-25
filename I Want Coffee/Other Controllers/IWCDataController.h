@@ -10,6 +10,13 @@
 #import "CurrentUser.h"
 @import CoreLocation;
 
+@protocol IWCLocationListenerDelegate <NSObject>
+
+- (void)updatedLocation:(CLLocation *)newLocation;
+
+@end
+
+
 @interface IWCDataController : NSObject <CLLocationManagerDelegate> {
     CurrentUser *currentUser;
     CLLocationManager *locationManager;
@@ -17,6 +24,7 @@
 
 @property (nonatomic, retain) CurrentUser *currentUser;
 @property (nonatomic, retain) CLLocationManager *locationManager;
+@property (assign) id<IWCLocationListenerDelegate> locationDelegate;
 
 + (id)sharedController;
 

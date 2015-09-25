@@ -14,6 +14,7 @@
 
 @synthesize currentUser;
 @synthesize locationManager;
+@synthesize locationDelegate;
 
 - (id)init {
     if (self == [super init]) {
@@ -65,6 +66,13 @@
 - (void)setUserFirstTimeOpeningApp:(BOOL) firstTime {
     currentUser.firstTimeOpeningApp = firstTime;
     [self saveCurrentUser];
+}
+
+# pragma mark locationDelegate methods
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    if (self.locationDelegate) {
+        [locationDelegate updatedLocation:[locations lastObject]];
+    }
 }
 
 @end
