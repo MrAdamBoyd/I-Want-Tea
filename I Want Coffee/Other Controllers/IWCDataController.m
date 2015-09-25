@@ -33,6 +33,7 @@
         
         //Setting up the CLLocationManager
         locationManager = [[CLLocationManager alloc] init];
+        locationManager.delegate = self;
     }
     
     return self;
@@ -64,11 +65,6 @@
 - (void)setUserFirstTimeOpeningApp:(BOOL) firstTime {
     currentUser.firstTimeOpeningApp = firstTime;
     [self saveCurrentUser];
-}
-
-#pragma mark CLLocationManagerDelegate
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    NSLog(@"%@", [locations lastObject]);
 }
 
 @end

@@ -12,6 +12,7 @@
 		66959EC61BB4D33400B4A1E5 /* Coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 66959EC51BB4D33400B4A1E5 /* Coffee.png */; settings = {ASSET_TAGS = (); }; };
 		66959F0A1BB4D55100B4A1E5 /* CoffeeArt.png in Resources */ = {isa = PBXBuildFile; fileRef = 66959F091BB4D55100B4A1E5 /* CoffeeArt.png */; settings = {ASSET_TAGS = (); }; };
 		66959F0E1BB4D62700B4A1E5 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959F0D1BB4D62700B4A1E5 /* UIImage+ImageEffects.m */; settings = {ASSET_TAGS = (); }; };
+		66959F111BB4EB1400B4A1E5 /* UIColor+IWCColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959F101BB4EB1400B4A1E5 /* UIColor+IWCColors.m */; settings = {ASSET_TAGS = (); }; };
 		66A770711BB4AA9100DD7A1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770701BB4AA9100DD7A1B /* main.m */; };
 		66A770741BB4AA9100DD7A1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770731BB4AA9100DD7A1B /* AppDelegate.m */; };
 		66A770771BB4AA9100DD7A1B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770761BB4AA9100DD7A1B /* ViewController.m */; };
@@ -49,6 +50,8 @@
 		66959F091BB4D55100B4A1E5 /* CoffeeArt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CoffeeArt.png; sourceTree = "<group>"; };
 		66959F0C1BB4D62700B4A1E5 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "Categories/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		66959F0D1BB4D62700B4A1E5 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "Categories/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		66959F0F1BB4EB1400B4A1E5 /* UIColor+IWCColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+IWCColors.h"; path = "Categories/UIColor+IWCColors.h"; sourceTree = "<group>"; };
+		66959F101BB4EB1400B4A1E5 /* UIColor+IWCColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+IWCColors.m"; path = "Categories/UIColor+IWCColors.m"; sourceTree = "<group>"; };
 		66A7706C1BB4AA9100DD7A1B /* I Want Coffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I Want Coffee.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66A770701BB4AA9100DD7A1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		66A770721BB4AA9100DD7A1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 			children = (
 				66959F0C1BB4D62700B4A1E5 /* UIImage+ImageEffects.h */,
 				66959F0D1BB4D62700B4A1E5 /* UIImage+ImageEffects.m */,
+				66959F0F1BB4EB1400B4A1E5 /* UIColor+IWCColors.h */,
+				66959F101BB4EB1400B4A1E5 /* UIColor+IWCColors.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -390,6 +395,7 @@
 				66A770741BB4AA9100DD7A1B /* AppDelegate.m in Sources */,
 				66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */,
 				66A770711BB4AA9100DD7A1B /* main.m in Sources */,
+				66959F111BB4EB1400B4A1E5 /* UIColor+IWCColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

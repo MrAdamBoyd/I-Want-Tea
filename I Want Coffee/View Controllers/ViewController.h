@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 #import "EAIntroView.h"
 #import "IWCDataController.h"
 
-@interface ViewController : UIViewController <EAIntroDelegate>
+@interface ViewController : UIViewController <EAIntroDelegate, CLLocationManagerDelegate> {
+    MKMapView *mapView;
+    UIView *navBar;
+}
+
+@property(nonatomic, retain) MKMapView *mapView;
+@property(nonatomic, retain) UIView *navBar;
+@property(nonatomic, retain) CLLocationManager *locationManager;
 
 @end
 
