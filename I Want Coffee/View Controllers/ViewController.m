@@ -64,7 +64,7 @@
     mapView = [[MKMapView alloc] init];
     [self.view addSubview:mapView];
     [mapView setTranslatesAutoresizingMaskIntoConstraints:false];
-    [mapView setUserInteractionEnabled:NO];
+    mapView.delegate = self;
     
     //0px from nav bar bottom, 0px from left, right, 0px from bottom
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mapView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:navBar attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
@@ -144,12 +144,43 @@
     }];
 }
 
+#pragma mark MKMapViewDelegate
+
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    id <MKAnnotation> annotation = [view annotation];
+    if ([annotation isKindOfClass:[MKPointAnnotation class]]) {
+        NSLog(@"Clicked shop");
+    }
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Disclosure Pressed" message:@"Click Cancel to Go Back" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    [alertView show];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    // If it's the user location, just return nil.
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    
+    MKAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"loc"];
+    
+    // Button
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    button.frame = CGRectMake(0, 0, 23, 23);
+    annotationView.rightCalloutAccessoryView = button;
+    
+    annotationView.canShowCallout = YES;
+    
+    return annotationView;
+}
+
 #pragma mark StatusBarStyle
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
 
 #pragma mark IWCLocationListenerDelegate
+
+//Adding all the shops to the screen
 - (void)addShopsToScreen:(NSArray<IWCShop *> *)shops {
     for (IWCShop *shop in shops) {
         CLLocationCoordinate2D shopPoint;

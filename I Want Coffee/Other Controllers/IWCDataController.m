@@ -10,7 +10,6 @@
 
 #define kCurrentUserKey @"kCurrentUserKey"
 
-
 #define kFSVersion @"20130815"
 
 @implementation IWCDataController
@@ -110,6 +109,7 @@
     return parameters;
 }
 
+//Makes a search request on the Foursquare API. If the request is successful, it will add the pins to the MKMapView on the ViewController.
 - (void)searchForNearbyCoffee {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = [self buildParameters];
