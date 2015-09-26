@@ -34,5 +34,6 @@
 
 - (BOOL)getUserFirstTimeOpeningApp;
 - (void)setUserFirstTimeOpeningApp:(BOOL) firstTime;
+- (void)searchForNearbyCoffee:(CLLocationCoordinate2D) coordinateToSearch;
 
 @end

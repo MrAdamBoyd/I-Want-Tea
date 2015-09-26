@@ -10,6 +10,7 @@
 
 #define kCurrentUserKey @"kCurrentUserKey"
 
+
 #define kFSVersion @"20130815"
 
 @implementation IWCDataController
@@ -86,23 +87,22 @@
 
 # pragma mark Location methods
 - (void)updateLocation:(CLLocation *)newLocation {
-    //If we have (no location or the distance from the new location to the saved one is more than 20 meters) and the accuracy is less than 20 meters
-    if ((!savedLocation || [savedLocation distanceFromLocation:newLocation] > 50) && newLocation.horizontalAccuracy < 50) {
+    //If we have (no location or the distance from the new location to the saved one is more than 50 meters) and the accuracy is less than 150 meters
+    if ((!savedLocation || [savedLocation distanceFromLocation:newLocation] > 50) && newLocation.horizontalAccuracy < 75) {
         savedLocation = newLocation;
         
-        
-        [self searchForNearbyCoffee];
+        [self searchForNearbyCoffee:savedLocation.coordinate];
     }
 }
 
 //Building the lat, lon string for the parameters
--(NSString *)buildLocationString {
-    NSString *locationString = [NSString stringWithFormat:@"%f,%f", savedLocation.coordinate.latitude, savedLocation.coordinate.longitude];
+-(NSString *)buildLocationString:(CLLocationCoordinate2D) coordinate {
+    NSString *locationString = [NSString stringWithFormat:@"%f,%f", coordinate.latitude, coordinate.longitude];
     return locationString;
 }
 
 //Building the parameters for the search
-- (NSDictionary *)buildParameters {
+- (NSDictionary *)buildParameters:(CLLocationCoordinate2D) coordinate {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     
     //API information
@@ -110,7 +110,7 @@
     [parameters setValue:kFSClientSecret forKey:@"client_secret"];
     [parameters setValue:kFSVersion forKey:@"v"];
     
-    NSString *locationString = [self buildLocationString];
+    NSString *locationString = [self buildLocationString:coordinate];
     [parameters setValue:locationString forKey:@"ll"];
     [parameters setValue:@"coffee" forKey:@"query"];
     
@@ -118,9 +118,9 @@
 }
 
 //Makes a search request on the Foursquare API. If the request is successful, it will add the pins to the MKMapView on the ViewController.
-- (void)searchForNearbyCoffee {
+- (void)searchForNearbyCoffee:(CLLocationCoordinate2D) coordinateToSearch {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = [self buildParameters];
+    NSDictionary *parameters = [self buildParameters:coordinateToSearch];
     
     [manager GET:@"https://api.foursquare.com/v2/venues/search" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         

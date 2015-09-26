@@ -23,8 +23,9 @@
 
 @implementation ViewController
 
-@synthesize mapView;
+@synthesize mainMapView;
 @synthesize bottomToolbar;
+@synthesize searchAreaButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,16 +35,16 @@
     self.titleLabel.text = @"I Want Coffee";
     
     //Map View
-    mapView = [[MKMapView alloc] init];
-    [self.view addSubview:mapView];
-    [mapView setTranslatesAutoresizingMaskIntoConstraints:false];
-    mapView.delegate = self;
+    mainMapView = [[MKMapView alloc] init];
+    [self.view addSubview:mainMapView];
+    [mainMapView setTranslatesAutoresizingMaskIntoConstraints:false];
+    mainMapView.delegate = self;
     
     //0px from nav bar bottom, 0px from left, right, 0px from bottom
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mapView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.navBar attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mapView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mapView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mapView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mainMapView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.navBar attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mainMapView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mainMapView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mainMapView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
     
     
     //Toolbar at the bottom
@@ -62,14 +63,44 @@
     
     
     //Button that tracks user's location
-    MKUserTrackingBarButtonItem *userTrackingButton = [[MKUserTrackingBarButtonItem alloc] initWithMapView:mapView];
+    MKUserTrackingBarButtonItem *userTrackingButton = [[MKUserTrackingBarButtonItem alloc] initWithMapView:mainMapView];
     [bottomToolbar setItems:@[userTrackingButton]];
+    
+    
+    //Button that lets user search for any area they want
+    searchAreaButton = [[UIButton alloc] init];
+    [self.view addSubview:searchAreaButton];
+    [searchAreaButton.layer setCornerRadius:15];
+    [searchAreaButton.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+    [searchAreaButton setTitle:@"Search in Area" forState:UIControlStateNormal];
+    [searchAreaButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [searchAreaButton setBackgroundColor:[UIColor whiteColor]];
+    [searchAreaButton addTarget:self action:@selector(searchInArea) forControlEvents:UIControlEventTouchUpInside];
+    [searchAreaButton setTranslatesAutoresizingMaskIntoConstraints:false];
+    
+    //Highlight animation
+    [searchAreaButton setTitleColor:[UIColor colorWithWhite:0 alpha:.3] forState:UIControlStateHighlighted];
+    
+    //Shadow on button
+    searchAreaButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    searchAreaButton.layer.shadowOpacity = 0.4;
+    searchAreaButton.layer.shadowRadius = 5;
+    searchAreaButton.layer.shadowOffset = CGSizeMake(1, 1);
+    searchAreaButton.layer.borderWidth = 1;
+    searchAreaButton.layer.borderColor = [UIColor tiltBlue].CGColor;
+    
+    //10px above toolbar, center x, 175 width
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:searchAreaButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:bottomToolbar attribute:NSLayoutAttributeTop multiplier:1 constant:-10]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:searchAreaButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:searchAreaButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:175]];
+    
     
     if ([self setUpAndShowIntroViews]) {
         //Set the opacity to 0 if we are showing an intro view so we can animate it in
         self.navBar.alpha = 0;
-        self.mapView.alpha = 0;
-        self.bottomToolbar.alpha = 0;
+        mainMapView.alpha = 0;
+        bottomToolbar.alpha = 0;
+        searchAreaButton.alpha = 0;
     }
     
     //If we have permission, start tracking the user
@@ -83,6 +114,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)searchInArea {
+    //Remove all annotations first
+    [mainMapView removeAnnotations:mainMapView.annotations];
+    
+    [[IWCDataController sharedController] searchForNearbyCoffee:mainMapView.centerCoordinate];
+}
 
 //Shows the intro views if the user hasn't opened the app and/or if we don't have authorization to use gps
 - (BOOL)setUpAndShowIntroViews {
@@ -136,7 +173,7 @@
 - (void)startTrackingUser {
     [[[IWCDataController sharedController] locationManager] startUpdatingLocation];
     
-    [mapView setUserTrackingMode:MKUserTrackingModeFollow];
+    [mainMapView setUserTrackingMode:MKUserTrackingModeFollow];
 }
 
 #pragma mark EAIntroDelegate
@@ -152,8 +189,8 @@
     //Animating the views in
     [UIView animateWithDuration:1.f animations:^{
         self.navBar.alpha = 1;
-        self.mapView.alpha = 1;
-        self.bottomToolbar.alpha = 1;
+        mainMapView.alpha = 1;
+        bottomToolbar.alpha = 1;
     }];
 }
 
@@ -175,9 +212,10 @@
     }
 }
 
+//Gets the view for each annotation (pin) on the map
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
-    // If it's the user location, just return nil.
+    // If it's the user location, just return nil, which is the default
     if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
     
@@ -193,7 +231,26 @@
     return annotationView;
 }
 
+- (void)mapView:(MKMapView *)mapView didChangeUserTrackingMode:(MKUserTrackingMode)mode animated:(BOOL)animated {
+    if (mode == MKUserTrackingModeFollow) {
+        [UIView animateWithDuration:.5 animations:^{
+            searchAreaButton.alpha = 0;
+        }];
+        
+        //We have annotation on the map, research
+        if (mainMapView.annotations.count > 1) {
+            [[IWCDataController sharedController] searchForNearbyCoffee:[[IWCDataController sharedController] savedLocation].coordinate];
+        }
+        
+    } else if (mode == MKUserTrackingModeNone) {
+        [UIView animateWithDuration:.5 animations:^{
+            searchAreaButton.alpha = 1;
+        }];
+    }
+}
+
 #pragma mark StatusBarStyle
+
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
@@ -212,7 +269,7 @@
         [annotation setTitle:shop.name];
         [annotation setSubtitle:shop.addressArray[0]];
         [annotation setCurrentShop:shop];
-        [mapView addAnnotation:annotation];
+        [mainMapView addAnnotation:annotation];
     }
 }
 

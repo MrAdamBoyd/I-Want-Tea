@@ -16,8 +16,9 @@
 
 @interface ViewController : IWCViewController <EAIntroDelegate, IWCLocationListenerDelegate, MKMapViewDelegate>
 
-@property (nonatomic, retain) MKMapView *mapView;
+@property (nonatomic, retain) MKMapView *mainMapView;
 @property (nonatomic, retain) UIToolbar *bottomToolbar;
+@property (nonatomic, retain) UIButton *searchAreaButton;
 
 @end
 
