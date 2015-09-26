@@ -10,8 +10,8 @@
 
 @implementation UIColor (IWCColors)
 
-+ (UIColor *)tiltDarkBlue {
-    return [UIColor colorWithRed:0.00 green:0.62 blue:0.84 alpha:1.0];
++ (UIColor *)tiltBlue {
+    return [UIColor colorWithRed:0.00 green:0.63 blue:0.86 alpha:1.0];
 }
 
 @end

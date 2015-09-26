@@ -24,12 +24,10 @@
 @implementation ViewController
 
 @synthesize mapView;
+@synthesize bottomToolbar;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //Showing the intro views
-    [self setUpAndShowIntroViews];
     
     [[IWCDataController sharedController] setIwcDelegate:self];
     
@@ -47,10 +45,36 @@
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mapView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mapView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
     
-    //Set the opacity to 0 if we are showing an intro view so we can animate it in
-    if ([[IWCDataController sharedController] getUserFirstTimeOpeningApp] || [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse) {
+    
+    //Toolbar at the bottom
+    bottomToolbar = [[UIToolbar alloc] init];
+    [self.view addSubview:bottomToolbar];
+    [bottomToolbar setBackgroundColor:[UIColor tiltBlue]];
+    [bottomToolbar setTintColor:[UIColor whiteColor]];
+    [bottomToolbar setBarTintColor:[UIColor tiltBlue]];
+    [bottomToolbar setTranslatesAutoresizingMaskIntoConstraints:false];
+    
+    //0px from bottom, left, right, 44px high
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bottomToolbar attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bottomToolbar attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bottomToolbar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bottomToolbar attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:44]];
+    
+    
+    //Button that tracks user's location
+    MKUserTrackingBarButtonItem *userTrackingButton = [[MKUserTrackingBarButtonItem alloc] initWithMapView:mapView];
+    [bottomToolbar setItems:@[userTrackingButton]];
+    
+    if ([self setUpAndShowIntroViews]) {
+        //Set the opacity to 0 if we are showing an intro view so we can animate it in
         self.navBar.alpha = 0;
         self.mapView.alpha = 0;
+        self.bottomToolbar.alpha = 0;
+    }
+    
+    //If we have permission, start tracking the user
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [self startTrackingUser];
     }
 }
 
@@ -59,7 +83,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setUpAndShowIntroViews {
+
+//Shows the intro views if the user hasn't opened the app and/or if we don't have authorization to use gps
+- (BOOL)setUpAndShowIntroViews {
     NSMutableArray<EAIntroPage *> *introViewArray = [[NSMutableArray alloc] init];
     
     if ([[IWCDataController sharedController] getUserFirstTimeOpeningApp]) {
@@ -96,11 +122,25 @@
         introView.pages = introViewArray;
         introView.delegate = self;
         [introView showInView:self.view animateDuration:0];
+        
+        //We did show intro views
+        return YES;
     }
+    
+    //We didn't show any intro views
+    return NO;
 
 }
 
+//Starts updating the location & tracks the users location on the map
+- (void)startTrackingUser {
+    [[[IWCDataController sharedController] locationManager] startUpdatingLocation];
+    
+    [mapView setUserTrackingMode:MKUserTrackingModeFollow];
+}
+
 #pragma mark EAIntroDelegate
+
 - (void)introDidFinish:(EAIntroView *)introView {
     [[IWCDataController sharedController] setUserFirstTimeOpeningApp:NO];
     
@@ -108,14 +148,12 @@
     if ([[[IWCDataController sharedController] locationManager] respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [[[IWCDataController sharedController] locationManager] requestWhenInUseAuthorization];
     }
-    [[[IWCDataController sharedController] locationManager] startUpdatingLocation];
-    
-    [mapView setUserTrackingMode:MKUserTrackingModeFollow];
     
     //Animating the views in
     [UIView animateWithDuration:1.f animations:^{
         self.navBar.alpha = 1;
         self.mapView.alpha = 1;
+        self.bottomToolbar.alpha = 1;
     }];
 }
 
@@ -176,6 +214,10 @@
         [annotation setCurrentShop:shop];
         [mapView addAnnotation:annotation];
     }
+}
+
+- (void)userAuthorizedLocationUse {
+    [self startTrackingUser];
 }
 
 @end

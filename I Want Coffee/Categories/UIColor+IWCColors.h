@@ -11,6 +11,6 @@
 
 @interface UIColor (IWCColors)
 
-+ (UIColor *)tiltDarkBlue;
++ (UIColor *)tiltBlue;
 
 @end

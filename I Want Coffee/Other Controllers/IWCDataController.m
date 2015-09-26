@@ -10,7 +10,6 @@
 
 #define kCurrentUserKey @"kCurrentUserKey"
 
-
 #define kFSVersion @"20130815"
 
 @implementation IWCDataController
@@ -77,6 +76,14 @@
     [self updateLocation:[locations lastObject]];
 }
 
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        if (self.iwcDelegate) {
+            [self.iwcDelegate userAuthorizedLocationUse];
+        }
+    }
+}
+
 # pragma mark Location methods
 - (void)updateLocation:(CLLocation *)newLocation {
     //If we have (no location or the distance from the new location to the saved one is more than 20 meters) and the accuracy is less than 20 meters
@@ -122,6 +129,7 @@
         FoursquareResponseParser *parser = [[FoursquareResponseParser alloc] init];
         NSArray *shops = [parser parseAPIResponse:apiResponse];
         
+        //Add the shops to the screen of the delegate (the view controller)
         if (self.iwcDelegate) {
             [self.iwcDelegate addShopsToScreen:shops];
         }

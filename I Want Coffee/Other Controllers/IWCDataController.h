@@ -14,6 +14,7 @@
 
 @protocol IWCLocationListenerDelegate <NSObject>
 
+- (void)userAuthorizedLocationUse;
 - (void)addShopsToScreen:(NSArray<IWCShop *> *)shops;
 
 @end

@@ -16,13 +16,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor tiltDarkBlue];
+    self.view.backgroundColor = [UIColor tiltBlue];
     
     //Nav bar
     navBar = [[UIView alloc] init];
     [self.view addSubview:navBar];
     [navBar setTranslatesAutoresizingMaskIntoConstraints:false];
-    navBar.backgroundColor = [UIColor tiltDarkBlue];
+    navBar.backgroundColor = [UIColor tiltBlue];
     
     //20px from top, 0px from left, right, 44px height
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:navBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:20]];
