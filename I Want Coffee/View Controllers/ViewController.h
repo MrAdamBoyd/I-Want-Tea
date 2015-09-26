@@ -10,6 +10,8 @@
 #import <MapKit/MapKit.h>
 #import "EAIntroView.h"
 #import "IWCDataController.h"
+#import "IWCMapAnnotation.h"
+#import "IWCShopDetailViewController.h"
 
 @interface ViewController : UIViewController <EAIntroDelegate, IWCLocationListenerDelegate, MKMapViewDelegate> {
     MKMapView *mapView;

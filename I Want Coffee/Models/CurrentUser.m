@@ -15,7 +15,7 @@
 @synthesize firstTimeOpeningApp;
 
 - (id)init {
-    if (self == [super init]) {
+    if (self = [super init]) {
         firstTimeOpeningApp = YES;
     }
     

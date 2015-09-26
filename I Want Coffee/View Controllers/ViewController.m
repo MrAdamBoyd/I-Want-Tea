@@ -148,11 +148,19 @@
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     id <MKAnnotation> annotation = [view annotation];
-    if ([annotation isKindOfClass:[MKPointAnnotation class]]) {
+    
+    //If the user taps on a detail, show in the detail view controller
+    if ([annotation isKindOfClass:[IWCMapAnnotation class]]) {
+        
+        IWCMapAnnotation *currentAnnotation = (IWCMapAnnotation *)annotation;
+        
+        IWCShopDetailViewController *shopViewController = [[IWCShopDetailViewController alloc] init];
+        //[shopViewController setShop:currentAnnotation.currentShop];
+        
+        [self presentViewController:shopViewController animated:YES completion:nil];
+        
         NSLog(@"Clicked shop");
     }
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Disclosure Pressed" message:@"Click Cancel to Go Back" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-    [alertView show];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
@@ -187,10 +195,11 @@
         shopPoint.latitude = [shop.lat floatValue];
         shopPoint.longitude = [shop.lon floatValue];
         
-        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        IWCMapAnnotation *annotation = [[IWCMapAnnotation alloc] init];
         [annotation setCoordinate:shopPoint];
         [annotation setTitle:shop.name];
         [annotation setSubtitle:shop.addressArray[0]];
+        [annotation setCurrentShop:shop];
         [mapView addAnnotation:annotation];
     }
 }

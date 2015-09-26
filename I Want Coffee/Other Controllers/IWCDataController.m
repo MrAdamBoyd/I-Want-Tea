@@ -20,7 +20,7 @@
 @synthesize savedLocation;
 
 - (id)init {
-    if (self == [super init]) {
+    if (self = [super init]) {
         //Getting the current user
         NSData *unarchivedObject = [[NSUserDefaults standardUserDefaults] objectForKey:kCurrentUserKey];
         CurrentUser *user;
