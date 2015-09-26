@@ -26,6 +26,7 @@
 		66AA24861BB62A84004977C2 /* IWCMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24851BB62A84004977C2 /* IWCMapAnnotation.m */; settings = {ASSET_TAGS = (); }; };
 		66AA24891BB62FB2004977C2 /* IWCShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24881BB62FB2004977C2 /* IWCShopDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		66AA248C1BB63366004977C2 /* IWCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA248B1BB63366004977C2 /* IWCViewController.m */; settings = {ASSET_TAGS = (); }; };
+		66AA248F1BB74ADE004977C2 /* IWCDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA248E1BB74ADD004977C2 /* IWCDetailTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		843A480F7CECBECB693EF35D /* libPods-I Want Coffee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8DAC26E213E40538E3A384 /* libPods-I Want Coffee.a */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,8 @@
 		66AA24881BB62FB2004977C2 /* IWCShopDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCShopDetailViewController.m; path = "View Controllers/IWCShopDetailViewController.m"; sourceTree = "<group>"; };
 		66AA248A1BB63366004977C2 /* IWCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCViewController.h; path = "View Controllers/IWCViewController.h"; sourceTree = "<group>"; };
 		66AA248B1BB63366004977C2 /* IWCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCViewController.m; path = "View Controllers/IWCViewController.m"; sourceTree = "<group>"; };
+		66AA248D1BB74ADD004977C2 /* IWCDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCDetailTableViewCell.h; path = Views/IWCDetailTableViewCell.h; sourceTree = "<group>"; };
+		66AA248E1BB74ADD004977C2 /* IWCDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCDetailTableViewCell.m; path = Views/IWCDetailTableViewCell.m; sourceTree = "<group>"; };
 		6A8DAC26E213E40538E3A384 /* libPods-I Want Coffee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-I Want Coffee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0BEA991A2F8B8ADCA4D659 /* Pods-I Want Coffee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I Want Coffee.release.xcconfig"; path = "Pods/Target Support Files/Pods-I Want Coffee/Pods-I Want Coffee.release.xcconfig"; sourceTree = "<group>"; };
 		B6E733AAF5536B6A5D18B954 /* Pods-I Want Coffee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I Want Coffee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-I Want Coffee/Pods-I Want Coffee.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,12 +196,12 @@
 			children = (
 				66A770721BB4AA9100DD7A1B /* AppDelegate.h */,
 				66A770731BB4AA9100DD7A1B /* AppDelegate.m */,
-				66AA24831BB62A54004977C2 /* Views */,
 				66AA247C1BB60672004977C2 /* Functional */,
 				66959F0B1BB4D61D00B4A1E5 /* Categories */,
 				66959EB91BB4B52400B4A1E5 /* Models */,
 				66959EC21BB4B9AA00B4A1E5 /* Other Controllers */,
 				66959EB81BB4B4DD00B4A1E5 /* View Controllers */,
+				66AA24831BB62A54004977C2 /* Views */,
 				66A770781BB4AA9100DD7A1B /* Main.storyboard */,
 				66A7707B1BB4AA9100DD7A1B /* Assets.xcassets */,
 				66A7707D1BB4AA9100DD7A1B /* LaunchScreen.storyboard */,
@@ -248,6 +251,8 @@
 		66AA24831BB62A54004977C2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				66AA248D1BB74ADD004977C2 /* IWCDetailTableViewCell.h */,
+				66AA248E1BB74ADD004977C2 /* IWCDetailTableViewCell.m */,
 				66AA24841BB62A84004977C2 /* IWCMapAnnotation.h */,
 				66AA24851BB62A84004977C2 /* IWCMapAnnotation.m */,
 			);
@@ -430,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66AA248F1BB74ADE004977C2 /* IWCDetailTableViewCell.m in Sources */,
 				66959EC11BB4B9A600B4A1E5 /* IWCDataController.m in Sources */,
 				66AA24891BB62FB2004977C2 /* IWCShopDetailViewController.m in Sources */,
 				66AA24861BB62A84004977C2 /* IWCMapAnnotation.m in Sources */,

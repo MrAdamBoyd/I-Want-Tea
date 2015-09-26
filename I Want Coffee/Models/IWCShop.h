@@ -12,11 +12,13 @@
 
 @property (nonatomic, strong) NSString *name;
 
+@property (nonatomic, strong) NSString *unformattedPhone;
 @property (nonatomic, strong) NSString *phoneNumber;
 @property (nonatomic, strong) NSString *twitter;
 
 @property (nonatomic, strong) NSString *formattedAddress;
 @property (nonatomic, strong) NSArray<NSString *> *addressArray;
+@property (nonatomic, strong) NSString *urlReadyAddress;
 @property (nonatomic, strong) NSNumber *lat;
 @property (nonatomic, strong) NSNumber *lon;
 

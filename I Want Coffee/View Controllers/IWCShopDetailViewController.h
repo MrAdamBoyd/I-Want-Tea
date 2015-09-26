@@ -10,12 +10,16 @@
 #import "UIColor+IWCColors.h"
 #import "IWCShop.h"
 #import "IWCViewController.h"
+#import "IWCDetailTableViewCell.h"
 
-@interface IWCShopDetailViewController : IWCViewController
+@interface IWCShopDetailViewController : IWCViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, retain) IWCShop *shop;
-@property (nonatomic, retain) UIView *detailView;
+@property (nonatomic, retain) UITableView *detailTableView;
 @property (nonatomic, retain) UIButton *closeButton;
+@property (nonatomic, retain) NSMutableArray<NSString *> *titleArray;
+@property (nonatomic, retain) NSMutableArray<NSString *> *descArray;
+@property (nonatomic, strong) NSMutableArray<NSString *> *actionArray;
 
 - (id)initWithShop:(IWCShop *)shopToShow;
 

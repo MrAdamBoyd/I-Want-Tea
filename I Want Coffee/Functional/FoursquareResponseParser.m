@@ -30,6 +30,7 @@
     shop.name = [dictionary objectForKey:@"name"];
     
     NSDictionary *contact = [dictionary objectForKey:@"contact"];
+    shop.unformattedPhone = [contact objectForKey:@"phone"];
     shop.phoneNumber = [contact objectForKey:@"formattedPhone"];
     shop.twitter = [contact objectForKey:@"twitter"];
     
@@ -38,6 +39,16 @@
     shop.formattedAddress = [self formatAddressFromArray:shop.addressArray];
     shop.lat = [location objectForKey:@"lat"];
     shop.lon = [location objectForKey:@"lng"];
+    
+    NSString *streetAddress = [location objectForKey:@"address"];
+    NSString *city = [location objectForKey:@"city"];
+    NSString *state = [location objectForKey:@"state"];
+    NSArray *goingToFormatAddress = @[streetAddress, city, state];
+    
+    NSString *urlReady = [goingToFormatAddress componentsJoinedByString:@","];
+    urlReady = [urlReady stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    
+    shop.urlReadyAddress = urlReady;
     
     if ([[dictionary objectForKey:@"hasMenu"] boolValue]) {
     

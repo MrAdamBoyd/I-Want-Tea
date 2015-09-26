@@ -11,13 +11,47 @@
 @implementation IWCShopDetailViewController
 
 @synthesize shop;
-@synthesize detailView;
+@synthesize detailTableView;
 @synthesize closeButton;
+@synthesize titleArray;
+@synthesize descArray;
+@synthesize actionArray;
 
 - (id)initWithShop:(IWCShop *)shopToShow {
     if (self = [super init]) {
         shop = shopToShow;
     }
+    
+    titleArray = [[NSMutableArray alloc] init];
+    descArray = [[NSMutableArray alloc] init];
+    actionArray = [[NSMutableArray alloc] init];
+    
+    //If the shop has a menu url
+    if (shop.menuURL) {
+        [titleArray addObject:@"Menu"];
+        [descArray addObject:@"Tap to view menu"];
+        [actionArray addObject:shop.menuURL];
+    }
+    
+    if (shop.phoneNumber) {
+        [titleArray addObject:@"Phone Number"];
+        [descArray addObject:shop.phoneNumber];
+        
+        //Phone url
+        NSString *phoneURLString = [NSString stringWithFormat:@"tel:%@", shop.unformattedPhone];
+        [actionArray addObject:phoneURLString];
+    }
+    
+    if (shop.twitter) {
+        [titleArray addObject:@"Twitter"];
+        [descArray addObject:[NSString stringWithFormat:@"@%@", shop.twitter]];
+        
+        [actionArray addObject: [NSString stringWithFormat:@"https://twitter.com/%@", shop.twitter]];
+    }
+    
+    [titleArray addObject:@"Address"];
+    [descArray addObject:shop.formattedAddress];
+    [actionArray addObject:[NSString stringWithFormat:@"http://maps.apple.com?address=%@", shop.urlReadyAddress]];
     
     return self;
 }
@@ -43,16 +77,22 @@
     [self.navBar addConstraint:[NSLayoutConstraint constraintWithItem:closeButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.navBar attribute:NSLayoutAttributeRight multiplier:1 constant:-10]];
     
     //Detail view
-    detailView = [[UIView alloc] init];
-    [self.view addSubview:detailView];
-    detailView.backgroundColor = [UIColor whiteColor];
-    [detailView setTranslatesAutoresizingMaskIntoConstraints:false];
+    detailTableView = [[UITableView alloc] init];
+    [self.view addSubview:detailTableView];
+    detailTableView.backgroundColor = [UIColor whiteColor];
+    [detailTableView setTranslatesAutoresizingMaskIntoConstraints:false];
+    detailTableView.dataSource = self;
+    detailTableView.delegate = self;
+    
+    //Autonatic row height
+    detailTableView.rowHeight = UITableViewAutomaticDimension;
+    detailTableView.estimatedRowHeight = 100;
     
     //0px below navBar, 0px on left, right, bottom
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.navBar attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:detailView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:detailTableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.navBar attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:detailTableView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:detailTableView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:detailTableView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
     
 }
 
@@ -68,6 +108,35 @@
 #pragma mark StatusBarStyle
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+#pragma mark UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section      {
+    return [titleArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    IWCDetailTableViewCell *cell = [[IWCDetailTableViewCell alloc] init];
+    
+    cell.header.text = [titleArray objectAtIndex:indexPath.row];
+    cell.mainText.text = [descArray objectAtIndex:indexPath.row];
+    
+    return cell;
+}
+
+#pragma mark UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[actionArray objectAtIndex:indexPath.row]]];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
 }
 
 /*
