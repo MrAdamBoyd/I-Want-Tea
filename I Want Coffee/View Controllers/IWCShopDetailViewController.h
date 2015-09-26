@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "UIColor+IWCColors.h"
 #import "IWCShop.h"
+#import "IWCViewController.h"
 
-@interface IWCShopDetailViewController : UIViewController
+@interface IWCShopDetailViewController : IWCViewController
 
-@property (nonatomic, retain) UIView *navBar;
 @property (nonatomic, retain) IWCShop *shop;
+@property (nonatomic, retain) UIView *detailView;
+@property (nonatomic, retain) UIButton *closeButton;
+
+- (id)initWithShop:(IWCShop *)shopToShow;
 
 @end

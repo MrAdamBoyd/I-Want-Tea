@@ -12,14 +12,11 @@
 #import "IWCDataController.h"
 #import "IWCMapAnnotation.h"
 #import "IWCShopDetailViewController.h"
+#import "IWCViewController.h"
 
-@interface ViewController : UIViewController <EAIntroDelegate, IWCLocationListenerDelegate, MKMapViewDelegate> {
-    MKMapView *mapView;
-    UIView *navBar;
-}
+@interface ViewController : IWCViewController <EAIntroDelegate, IWCLocationListenerDelegate, MKMapViewDelegate>
 
 @property(nonatomic, retain) MKMapView *mapView;
-@property(nonatomic, retain) UIView *navBar;
 
 @end
 

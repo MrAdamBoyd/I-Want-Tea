@@ -17,14 +17,13 @@
 #define kIntroPage1Image [UIImage imageNamed:@"Coffee.png"]
 #define kIntroPage2Image [UIImage imageNamed:@"CoffeeArt.png"]
 
-@interface ViewController ()
+@interface IWCViewController ()
 
 @end
 
 @implementation ViewController
 
 @synthesize mapView;
-@synthesize navBar;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,31 +33,7 @@
     
     [[IWCDataController sharedController] setIwcDelegate:self];
     
-    self.view.backgroundColor = [UIColor tiltDarkBlue];
-    
-    //Nav bar
-    navBar = [[UIView alloc] init];
-    [self.view addSubview:navBar];
-    [navBar setTranslatesAutoresizingMaskIntoConstraints:false];
-    navBar.backgroundColor = [UIColor tiltDarkBlue];
-    
-//    //20px from top, 0px from left, right, 44px height
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:navBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:20]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:navBar attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:navBar attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:navBar attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:44]];
-    
-    //Adding app title to UIView at top of screen
-    UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.text = @"I Want Coffee";
-    titleLabel.font = [UIFont boldSystemFontOfSize:20];
-    titleLabel.textColor = [UIColor whiteColor];
-    [navBar addSubview:titleLabel];
-    [titleLabel setTranslatesAutoresizingMaskIntoConstraints:false];
-    
-    //Centered on X and Y
-    [navBar addConstraint:[NSLayoutConstraint constraintWithItem:titleLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:navBar attribute:NSLayoutAttributeCenterY multiplier:1 constant:-2]];
-    [navBar addConstraint:[NSLayoutConstraint constraintWithItem:titleLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:navBar attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    self.titleLabel.text = @"I Want Coffee";
     
     //Map View
     mapView = [[MKMapView alloc] init];
@@ -67,15 +42,15 @@
     mapView.delegate = self;
     
     //0px from nav bar bottom, 0px from left, right, 0px from bottom
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mapView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:navBar attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mapView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.navBar attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mapView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mapView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mapView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
     
     //Set the opacity to 0 if we are showing an intro view so we can animate it in
     if ([[IWCDataController sharedController] getUserFirstTimeOpeningApp] || [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse) {
-        navBar.alpha = 0;
-        mapView.alpha = 0;
+        self.navBar.alpha = 0;
+        self.mapView.alpha = 0;
     }
 }
 
@@ -139,8 +114,8 @@
     
     //Animating the views in
     [UIView animateWithDuration:1.f animations:^{
-        navBar.alpha = 1;
-        mapView.alpha = 1;
+        self.navBar.alpha = 1;
+        self.mapView.alpha = 1;
     }];
 }
 
@@ -154,8 +129,7 @@
         
         IWCMapAnnotation *currentAnnotation = (IWCMapAnnotation *)annotation;
         
-        IWCShopDetailViewController *shopViewController = [[IWCShopDetailViewController alloc] init];
-        //[shopViewController setShop:currentAnnotation.currentShop];
+        IWCShopDetailViewController *shopViewController = [[IWCShopDetailViewController alloc] initWithShop:currentAnnotation.currentShop];
         
         [self presentViewController:shopViewController animated:YES completion:nil];
         

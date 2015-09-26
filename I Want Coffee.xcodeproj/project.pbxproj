@@ -25,6 +25,7 @@
 		66AA24821BB606CA004977C2 /* IWCShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24811BB606CA004977C2 /* IWCShop.m */; settings = {ASSET_TAGS = (); }; };
 		66AA24861BB62A84004977C2 /* IWCMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24851BB62A84004977C2 /* IWCMapAnnotation.m */; settings = {ASSET_TAGS = (); }; };
 		66AA24891BB62FB2004977C2 /* IWCShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24881BB62FB2004977C2 /* IWCShopDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		66AA248C1BB63366004977C2 /* IWCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA248B1BB63366004977C2 /* IWCViewController.m */; settings = {ASSET_TAGS = (); }; };
 		843A480F7CECBECB693EF35D /* libPods-I Want Coffee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8DAC26E213E40538E3A384 /* libPods-I Want Coffee.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,8 @@
 		66AA24851BB62A84004977C2 /* IWCMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCMapAnnotation.m; path = Views/IWCMapAnnotation.m; sourceTree = "<group>"; };
 		66AA24871BB62FB2004977C2 /* IWCShopDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCShopDetailViewController.h; path = "View Controllers/IWCShopDetailViewController.h"; sourceTree = "<group>"; };
 		66AA24881BB62FB2004977C2 /* IWCShopDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCShopDetailViewController.m; path = "View Controllers/IWCShopDetailViewController.m"; sourceTree = "<group>"; };
+		66AA248A1BB63366004977C2 /* IWCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCViewController.h; path = "View Controllers/IWCViewController.h"; sourceTree = "<group>"; };
+		66AA248B1BB63366004977C2 /* IWCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCViewController.m; path = "View Controllers/IWCViewController.m"; sourceTree = "<group>"; };
 		6A8DAC26E213E40538E3A384 /* libPods-I Want Coffee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-I Want Coffee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0BEA991A2F8B8ADCA4D659 /* Pods-I Want Coffee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I Want Coffee.release.xcconfig"; path = "Pods/Target Support Files/Pods-I Want Coffee/Pods-I Want Coffee.release.xcconfig"; sourceTree = "<group>"; };
 		B6E733AAF5536B6A5D18B954 /* Pods-I Want Coffee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I Want Coffee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-I Want Coffee/Pods-I Want Coffee.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,10 +125,12 @@
 		66959EB81BB4B4DD00B4A1E5 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				66A770751BB4AA9100DD7A1B /* ViewController.h */,
-				66A770761BB4AA9100DD7A1B /* ViewController.m */,
+				66AA248A1BB63366004977C2 /* IWCViewController.h */,
+				66AA248B1BB63366004977C2 /* IWCViewController.m */,
 				66AA24871BB62FB2004977C2 /* IWCShopDetailViewController.h */,
 				66AA24881BB62FB2004977C2 /* IWCShopDetailViewController.m */,
+				66A770751BB4AA9100DD7A1B /* ViewController.h */,
+				66A770761BB4AA9100DD7A1B /* ViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -433,6 +438,7 @@
 				66A770741BB4AA9100DD7A1B /* AppDelegate.m in Sources */,
 				66AA24821BB606CA004977C2 /* IWCShop.m in Sources */,
 				66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */,
+				66AA248C1BB63366004977C2 /* IWCViewController.m in Sources */,
 				66A770711BB4AA9100DD7A1B /* main.m in Sources */,
 				66AA247F1BB60697004977C2 /* FoursquareResponseParser.m in Sources */,
 				66959F111BB4EB1400B4A1E5 /* UIColor+IWCColors.m in Sources */,
