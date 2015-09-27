@@ -305,7 +305,7 @@
         }];
         
         //We have annotation on the map, research
-        if ([mainMapView.annotations count] > 0) {
+        if ([mainMapView.annotations count] > 0 && [[IWCDataController sharedController] savedLocation]) {
             [[IWCDataController sharedController] searchForNearbyCoffeeOrTea:[[IWCDataController sharedController] savedLocation].coordinate];
         }
         
