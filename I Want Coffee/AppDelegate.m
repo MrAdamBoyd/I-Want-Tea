@@ -19,7 +19,7 @@
 //--TODO:Progress HUD
 //--TODO:Move back to GPS and re search
 //--TODO:GPS always when opening app
-//TODO:Screen when no GPS
+//--TODO:Screen when no GPS
 //--TODO:About screen from info button on toolbar
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

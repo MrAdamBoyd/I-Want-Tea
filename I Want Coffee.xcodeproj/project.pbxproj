@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		662D038B1BB76BFE0035AD9E /* IWCAboutPageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 662D038A1BB76BFE0035AD9E /* IWCAboutPageBuilder.m */; settings = {ASSET_TAGS = (); }; };
+		662D038D1BB78B6B0035AD9E /* Picture Attributions in Resources */ = {isa = PBXBuildFile; fileRef = 662D038C1BB78B6B0035AD9E /* Picture Attributions */; settings = {ASSET_TAGS = (); }; };
 		66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */; settings = {ASSET_TAGS = (); }; };
 		66959EC11BB4B9A600B4A1E5 /* IWCDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959EC01BB4B9A600B4A1E5 /* IWCDataController.m */; settings = {ASSET_TAGS = (); }; };
 		66959EC61BB4D33400B4A1E5 /* Coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 66959EC51BB4D33400B4A1E5 /* Coffee.png */; settings = {ASSET_TAGS = (); }; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		662D03891BB76BFE0035AD9E /* IWCAboutPageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCAboutPageBuilder.h; path = Functional/IWCAboutPageBuilder.h; sourceTree = "<group>"; };
 		662D038A1BB76BFE0035AD9E /* IWCAboutPageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCAboutPageBuilder.m; path = Functional/IWCAboutPageBuilder.m; sourceTree = "<group>"; };
+		662D038C1BB78B6B0035AD9E /* Picture Attributions */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Picture Attributions"; sourceTree = "<group>"; };
 		66959EBC1BB4B57C00B4A1E5 /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentUser.h; path = Models/CurrentUser.h; sourceTree = "<group>"; };
 		66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentUser.m; path = Models/CurrentUser.m; sourceTree = "<group>"; };
 		66959EBF1BB4B9A600B4A1E5 /* IWCDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCDataController.h; path = "Other Controllers/IWCDataController.h"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		66A7706E1BB4AA9100DD7A1B /* I Want Coffee */ = {
 			isa = PBXGroup;
 			children = (
+				662D038C1BB78B6B0035AD9E /* Picture Attributions */,
 				66A770721BB4AA9100DD7A1B /* AppDelegate.h */,
 				66A770731BB4AA9100DD7A1B /* AppDelegate.m */,
 				66AA247C1BB60672004977C2 /* Functional */,
@@ -382,6 +385,7 @@
 				66959F0A1BB4D55100B4A1E5 /* CoffeeArt.png in Resources */,
 				66959EC61BB4D33400B4A1E5 /* Coffee.png in Resources */,
 				66A7707C1BB4AA9100DD7A1B /* Assets.xcassets in Resources */,
+				662D038D1BB78B6B0035AD9E /* Picture Attributions in Resources */,
 				66A7707A1BB4AA9100DD7A1B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
