@@ -12,8 +12,8 @@
 
 #define kIntroViewTitleFont [UIFont systemFontOfSize:35]
 #define kIntroViewDescFont [UIFont systemFontOfSize:25]
-#define kIntroViewTitleY [[UIScreen mainScreen] bounds].size.height - 100
-#define kIntroViewDescY [[UIScreen mainScreen] bounds].size.height - 150
+#define kIntroViewTitleY [[UIScreen mainScreen] bounds].size.height - 50
+#define kIntroViewDescY [[UIScreen mainScreen] bounds].size.height - 100
 #define kIntroPage1Image [UIImage imageNamed:@"Coffee.png"]
 #define kIntroPage2Image [UIImage imageNamed:@"CoffeeArt.png"]
 
