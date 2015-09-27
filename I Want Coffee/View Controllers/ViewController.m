@@ -26,6 +26,7 @@
 @synthesize mainMapView;
 @synthesize bottomToolbar;
 @synthesize searchAreaButton;
+@synthesize popupController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,8 +65,17 @@
     
     //Button that tracks user's location
     MKUserTrackingBarButtonItem *userTrackingButton = [[MKUserTrackingBarButtonItem alloc] initWithMapView:mainMapView];
-    [bottomToolbar setItems:@[userTrackingButton]];
     
+    //Flex space
+    UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    
+    //Button that opens about popup
+    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [infoButton addTarget:self action:@selector(showAboutPopup) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *infoButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+    
+    //Setting buttons
+    [bottomToolbar setItems:@[userTrackingButton, flex, infoButtonItem]];
     
     //Button that lets user search for any area they want
     searchAreaButton = [[UIButton alloc] init];
@@ -119,6 +129,21 @@
     [mainMapView removeAnnotations:mainMapView.annotations];
     
     [[IWCDataController sharedController] searchForNearbyCoffee:mainMapView.centerCoordinate];
+}
+
+- (void)showAboutPopup {
+    IWCAboutPageBuilder *builder = [[IWCAboutPageBuilder alloc] init];
+    
+    popupController = [[CNPPopupController alloc] initWithContents:[builder buildAboutPage:^(CNPPopupButton *button) {
+        [popupController dismissPopupControllerAnimated:YES];
+    }]];
+    [popupController setTheme:[CNPPopupTheme defaultTheme]];
+    [popupController.theme setCornerRadius:2.0];
+    [popupController.theme setBackgroundColor:[UIColor whiteColor]];
+    [popupController.theme setPopupStyle:CNPPopupStyleCentered];
+    [popupController presentPopupControllerAnimated:YES];
+    
+    
 }
 
 //Shows the intro views if the user hasn't opened the app and/or if we don't have authorization to use gps

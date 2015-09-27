@@ -14,12 +14,15 @@
 #import "IWCShopDetailViewController.h"
 #import "IWCViewController.h"
 #import "MBProgressHUD.h"
+#import "IWCAboutPageBuilder.h"
+#import "CNPPopupController.h"
 
 @interface ViewController : IWCViewController <EAIntroDelegate, IWCLocationListenerDelegate, MKMapViewDelegate>
 
 @property (nonatomic, retain) MKMapView *mainMapView;
 @property (nonatomic, retain) UIToolbar *bottomToolbar;
 @property (nonatomic, retain) UIButton *searchAreaButton;
+@property (nonatomic, retain) CNPPopupController *popupController;
 
 @end
 

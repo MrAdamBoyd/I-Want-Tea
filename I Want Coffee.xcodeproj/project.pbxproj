@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		662D038B1BB76BFE0035AD9E /* IWCAboutPageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 662D038A1BB76BFE0035AD9E /* IWCAboutPageBuilder.m */; settings = {ASSET_TAGS = (); }; };
 		66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */; settings = {ASSET_TAGS = (); }; };
 		66959EC11BB4B9A600B4A1E5 /* IWCDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959EC01BB4B9A600B4A1E5 /* IWCDataController.m */; settings = {ASSET_TAGS = (); }; };
 		66959EC61BB4D33400B4A1E5 /* Coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 66959EC51BB4D33400B4A1E5 /* Coffee.png */; settings = {ASSET_TAGS = (); }; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		662D03891BB76BFE0035AD9E /* IWCAboutPageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCAboutPageBuilder.h; path = Functional/IWCAboutPageBuilder.h; sourceTree = "<group>"; };
+		662D038A1BB76BFE0035AD9E /* IWCAboutPageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCAboutPageBuilder.m; path = Functional/IWCAboutPageBuilder.m; sourceTree = "<group>"; };
 		66959EBC1BB4B57C00B4A1E5 /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentUser.h; path = Models/CurrentUser.h; sourceTree = "<group>"; };
 		66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentUser.m; path = Models/CurrentUser.m; sourceTree = "<group>"; };
 		66959EBF1BB4B9A600B4A1E5 /* IWCDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCDataController.h; path = "Other Controllers/IWCDataController.h"; sourceTree = "<group>"; };
@@ -244,6 +247,8 @@
 			children = (
 				66AA247D1BB60697004977C2 /* FoursquareResponseParser.h */,
 				66AA247E1BB60697004977C2 /* FoursquareResponseParser.m */,
+				662D03891BB76BFE0035AD9E /* IWCAboutPageBuilder.h */,
+				662D038A1BB76BFE0035AD9E /* IWCAboutPageBuilder.m */,
 			);
 			name = Functional;
 			sourceTree = "<group>";
@@ -441,6 +446,7 @@
 				66AA24861BB62A84004977C2 /* IWCMapAnnotation.m in Sources */,
 				66A770771BB4AA9100DD7A1B /* ViewController.m in Sources */,
 				66959F0E1BB4D62700B4A1E5 /* UIImage+ImageEffects.m in Sources */,
+				662D038B1BB76BFE0035AD9E /* IWCAboutPageBuilder.m in Sources */,
 				66A770741BB4AA9100DD7A1B /* AppDelegate.m in Sources */,
 				66AA24821BB606CA004977C2 /* IWCShop.m in Sources */,
 				66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */,

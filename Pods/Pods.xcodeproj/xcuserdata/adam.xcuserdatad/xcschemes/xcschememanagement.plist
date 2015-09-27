@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CNPPopupController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>EAIntroView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2BDFB8E850B7FDF744750A773FEA9A64</key>
+		<key>04E2E3133B2DDD1D391697433D6ED112</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>47CB5D18B3018FFA242AA174975C4763</key>
+		<key>B4C2F3314FF86A3A38CFDEE334EC8E6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>66F89B2B717361C76F8EABACE89ECC7A</key>
+		<key>C4D9D81337CD2EB80E541540D7E286A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7E066D1292EBED8234A283E1BEB9FFDC</key>
+		<key>C5427E73DCFED325B2AD01CE1E467447</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D198F3F27586153B2B2064E37AA68504</key>
+		<key>F177C989D222DE3AD9DBADFDE2C715C5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F31B6799A947683AB5D084D5CE64241A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
