@@ -110,6 +110,10 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return NO;
+}
+
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section      {
     return [titleArray count];

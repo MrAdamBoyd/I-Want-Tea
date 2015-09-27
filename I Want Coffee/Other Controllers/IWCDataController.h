@@ -15,6 +15,7 @@
 @protocol IWCLocationListenerDelegate <NSObject>
 
 - (void)userAuthorizedLocationUse;
+- (void)userDeniedLocationUse;
 - (void)addShopsToScreen:(NSArray<IWCShop *> *)shops;
 - (void)showLoadingHUD;
 - (void)hideLoadingHUD;

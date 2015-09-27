@@ -161,10 +161,7 @@
         page1.descPositionY = kIntroViewDescY;
         page1.bgImage = kIntroPage1Image;
         [introViewArray addObject:page1];
-    }
-    
-    //If we don't have authorization status, show the page to request it
-    if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse) {
+
         //Asking for permission for GPS while using the app
         EAIntroPage *page2 = [[EAIntroPage alloc] init];
         page2.title = @"GPS Usage";
@@ -278,6 +275,10 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return NO;
+}
+
 #pragma mark IWCLocationListenerDelegate
 
 //Adding all the shops to the screen
@@ -298,6 +299,16 @@
 
 - (void)userAuthorizedLocationUse {
     [self startTrackingUser];
+
+    self.titleLabel.text = @"I Want Coffee";
+}
+
+- (void)userDeniedLocationUse {
+    [UIView animateWithDuration:.5 animations:^{
+        searchAreaButton.alpha = 1;
+    }];
+    
+    self.titleLabel.text = @"I Want Coffee - No GPS";
 }
 
 - (void)showLoadingHUD {

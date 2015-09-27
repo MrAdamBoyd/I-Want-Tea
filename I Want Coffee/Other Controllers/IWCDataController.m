@@ -82,6 +82,10 @@
         if (self.iwcDelegate) {
             [self.iwcDelegate userAuthorizedLocationUse];
         }
+    } else if (status == kCLAuthorizationStatusDenied) {
+        if (self.iwcDelegate) {
+            [self.iwcDelegate userDeniedLocationUse];
+        }
     }
 }
 
