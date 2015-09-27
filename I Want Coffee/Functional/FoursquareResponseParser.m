@@ -44,14 +44,20 @@
     
     NSMutableArray *goingToFormatAddress = [[NSMutableArray alloc] init];
     
-    if ([location objectForKey:@"address"]) {
-        NSString *streetAddress = [location objectForKey:@"address"];
+    NSString *streetAddress;
+    if ((streetAddress = [location objectForKey:@"address"])) {
         [goingToFormatAddress addObject:streetAddress];
     }
     
-    NSString *city = [location objectForKey:@"city"];
-    NSString *state = [location objectForKey:@"state"];
-    [goingToFormatAddress addObjectsFromArray:@[city, state]];
+    NSString *city;
+    if ((city = [location objectForKey:@"city"])) {
+        [goingToFormatAddress addObject:city];
+    }
+
+    NSString *state;
+    if ((state = [location objectForKey:@"state"])) {
+        [goingToFormatAddress addObject:state];
+    }
     
     NSString *urlReady = [goingToFormatAddress componentsJoinedByString:@","];
     urlReady = [urlReady stringByReplacingOccurrencesOfString:@" " withString:@"+"];
