@@ -16,6 +16,8 @@
 
 - (void)userAuthorizedLocationUse;
 - (void)addShopsToScreen:(NSArray<IWCShop *> *)shops;
+- (void)showLoadingHUD;
+- (void)hideLoadingHUD;
 
 @end
 

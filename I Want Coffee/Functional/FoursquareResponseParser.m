@@ -40,10 +40,16 @@
     shop.lat = [location objectForKey:@"lat"];
     shop.lon = [location objectForKey:@"lng"];
     
-    NSString *streetAddress = [location objectForKey:@"address"];
+    NSMutableArray *goingToFormatAddress = [[NSMutableArray alloc] init];
+    
+    if ([location objectForKey:@"address"]) {
+        NSString *streetAddress = [location objectForKey:@"address"];
+        [goingToFormatAddress addObject:streetAddress];
+    }
+    
     NSString *city = [location objectForKey:@"city"];
     NSString *state = [location objectForKey:@"state"];
-    NSArray *goingToFormatAddress = @[streetAddress, city, state];
+    [goingToFormatAddress addObjectsFromArray:@[city, state]];
     
     NSString *urlReady = [goingToFormatAddress componentsJoinedByString:@","];
     urlReady = [urlReady stringByReplacingOccurrencesOfString:@" " withString:@"+"];

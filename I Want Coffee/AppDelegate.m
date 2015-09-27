@@ -14,10 +14,10 @@
 
 @implementation AppDelegate
 
-//TODO:Details on the detail view controller
-//TODO:Redo search in new area
-//TODO:Progress HUD
-//TODO:Move back to GPS and re search
+//--TODO:Details on the detail view controller
+//--TODO:Redo search in new area
+//--TODO:Progress HUD
+//--TODO:Move back to GPS and re search
 //--TODO:GPS always when opening app
 //TODO:Screen when no GPS
 //TODO:About screen from info button on toolbar

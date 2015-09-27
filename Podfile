@@ -4,4 +4,5 @@
 target 'I Want Coffee' do
   pod 'EAIntroView', '~> 2.7.0'
   pod "AFNetworking", "~> 2.0"
+  pod 'MBProgressHUD', '~> 0.9.1'
 end

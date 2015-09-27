@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1679557387DB3DDA2B11B374"
-               BuildableName = "libEAIntroView.a"
-               BlueprintName = "EAIntroView"
+               BlueprintIdentifier = "89709718DF09522FEA4910D6"
+               BuildableName = "libMBProgressHUD.a"
+               BlueprintName = "MBProgressHUD"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

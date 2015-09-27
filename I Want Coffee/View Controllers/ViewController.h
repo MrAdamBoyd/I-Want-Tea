@@ -13,6 +13,7 @@
 #import "IWCMapAnnotation.h"
 #import "IWCShopDetailViewController.h"
 #import "IWCViewController.h"
+#import "MBProgressHUD.h"
 
 @interface ViewController : IWCViewController <EAIntroDelegate, IWCLocationListenerDelegate, MKMapViewDelegate>
 

@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-I Want Coffee.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3CA3BDB6DE4B7CC7681DBEC41E504DC6</key>
+		<key>2BDFB8E850B7FDF744750A773FEA9A64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>88C27D2CA9C29132F70DA566E437D557</key>
+		<key>47CB5D18B3018FFA242AA174975C4763</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ACE3C49327373A451F9E2A40672A5F34</key>
+		<key>66F89B2B717361C76F8EABACE89ECC7A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F0E98C7F2741FC5D604D30109BEC9512</key>
+		<key>7E066D1292EBED8234A283E1BEB9FFDC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D198F3F27586153B2B2064E37AA68504</key>
 		<dict>
 			<key>primary</key>
 			<true/>

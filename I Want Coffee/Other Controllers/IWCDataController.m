@@ -122,6 +122,12 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = [self buildParameters:coordinateToSearch];
     
+    //Tell VC to show HUD
+    if (self.iwcDelegate) {
+        [self.iwcDelegate showLoadingHUD];
+    }
+    
+    
     [manager GET:@"https://api.foursquare.com/v2/venues/search" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *apiResponse = (NSDictionary *)responseObject;
@@ -132,6 +138,10 @@
         //Add the shops to the screen of the delegate (the view controller)
         if (self.iwcDelegate) {
             [self.iwcDelegate addShopsToScreen:shops];
+        }
+        
+        if (self.iwcDelegate) {
+            [self.iwcDelegate hideLoadingHUD];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

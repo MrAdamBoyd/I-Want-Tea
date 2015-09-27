@@ -207,8 +207,6 @@
         IWCShopDetailViewController *shopViewController = [[IWCShopDetailViewController alloc] initWithShop:currentAnnotation.currentShop];
         
         [self presentViewController:shopViewController animated:YES completion:nil];
-        
-        NSLog(@"Clicked shop");
     }
 }
 
@@ -275,6 +273,14 @@
 
 - (void)userAuthorizedLocationUse {
     [self startTrackingUser];
+}
+
+- (void)showLoadingHUD {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
+
+-(void)hideLoadingHUD {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 @end
