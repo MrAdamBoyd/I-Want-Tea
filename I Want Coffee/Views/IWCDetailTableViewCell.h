@@ -10,8 +10,8 @@
 
 @interface IWCDetailTableViewCell : UITableViewCell
 
-@property (nonatomic, retain) UILabel *header;
-@property (nonatomic, retain) UILabel *mainText;
-@property (nonatomic, retain) NSString *actionURL;
+@property (nonatomic, strong) UILabel *header;
+@property (nonatomic, strong) UILabel *mainText;
+@property (nonatomic, strong) NSString *actionURL;
 
 @end

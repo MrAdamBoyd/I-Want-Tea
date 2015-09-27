@@ -11,6 +11,6 @@
 
 @interface IWCMapAnnotation : MKPointAnnotation
 
-@property (nonatomic, retain) IWCShop *currentShop;
+@property (nonatomic, strong) IWCShop *currentShop;
 
 @end

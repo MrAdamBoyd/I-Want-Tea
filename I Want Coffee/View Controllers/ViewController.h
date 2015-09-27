@@ -19,10 +19,10 @@
 
 @interface ViewController : IWCViewController <EAIntroDelegate, IWCLocationListenerDelegate, MKMapViewDelegate>
 
-@property (nonatomic, retain) MKMapView *mainMapView;
-@property (nonatomic, retain) UIToolbar *bottomToolbar;
-@property (nonatomic, retain) UIButton *searchAreaButton;
-@property (nonatomic, retain) CNPPopupController *popupController;
+@property (nonatomic, strong) MKMapView *mainMapView;
+@property (nonatomic, strong) UIToolbar *bottomToolbar;
+@property (nonatomic, strong) UIButton *searchAreaButton;
+@property (nonatomic, strong) CNPPopupController *popupController;
 
 @end
 

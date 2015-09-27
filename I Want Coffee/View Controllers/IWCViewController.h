@@ -11,7 +11,7 @@
 
 @interface IWCViewController : UIViewController
 
-@property (nonatomic, retain) UIView *navBar;
-@property (nonatomic, retain) UILabel *titleLabel;
+@property (nonatomic, strong) UIView *navBar;
+@property (nonatomic, strong) UILabel *titleLabel;
 
 @end

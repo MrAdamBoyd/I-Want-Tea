@@ -28,9 +28,9 @@
     CLLocationManager *locationManager;
 }
 
-@property (nonatomic, retain) CurrentUser *currentUser;
-@property (nonatomic, retain) CLLocationManager *locationManager;
-@property(nonatomic, retain) CLLocation *savedLocation;
+@property (nonatomic, strong) CurrentUser *currentUser;
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property(nonatomic, strong) CLLocation *savedLocation;
 @property (assign) id<IWCLocationListenerDelegate> iwcDelegate;
 
 + (id)sharedController;

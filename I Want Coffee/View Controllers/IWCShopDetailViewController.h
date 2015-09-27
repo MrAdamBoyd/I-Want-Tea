@@ -14,11 +14,11 @@
 
 @interface IWCShopDetailViewController : IWCViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, retain) IWCShop *shop;
-@property (nonatomic, retain) UITableView *detailTableView;
-@property (nonatomic, retain) UIButton *closeButton;
-@property (nonatomic, retain) NSMutableArray<NSString *> *titleArray;
-@property (nonatomic, retain) NSMutableArray<NSString *> *descArray;
+@property (nonatomic, strong) IWCShop *shop;
+@property (nonatomic, strong) UITableView *detailTableView;
+@property (nonatomic, strong) UIButton *closeButton;
+@property (nonatomic, strong) NSMutableArray<NSString *> *titleArray;
+@property (nonatomic, strong) NSMutableArray<NSString *> *descArray;
 @property (nonatomic, strong) NSMutableArray<NSString *> *actionArray;
 
 - (id)initWithShop:(IWCShop *)shopToShow;
