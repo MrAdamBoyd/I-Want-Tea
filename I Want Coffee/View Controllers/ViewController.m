@@ -228,7 +228,7 @@
 
 //Selecting coffee or tea
 - (void)segmentSelected:(UISegmentedControl *)sender {
-    BOOL shouldSearchAgain = [mainMapView.annotations count] > 1 ? YES : NO; //Search again if we have pins on the map
+    BOOL shouldSearchAgain = [mainMapView.annotations count] > 0 ? YES : NO; //Search again if we have pins on the map
     SearchMode mode = sender.selectedSegmentIndex == 0 ? SearchModeCoffee : SearchModeTea;
     
     NSString *toFindString = mode == SearchModeCoffee ? @"Tea" : @"Coffee";
@@ -305,7 +305,7 @@
         }];
         
         //We have annotation on the map, research
-        if ([mainMapView.annotations count] > 1) {
+        if ([mainMapView.annotations count] > 0) {
             [[IWCDataController sharedController] searchForNearbyCoffeeOrTea:[[IWCDataController sharedController] savedLocation].coordinate];
         }
         
