@@ -25,12 +25,14 @@ PODS:
     - EARestrictedScrollView (~> 0.2.0)
   - EARestrictedScrollView (0.2.0)
   - MBProgressHUD (0.9.1)
+  - NYSegmentedControl (1.0.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - CNPPopupController
   - EAIntroView (~> 2.7.0)
   - MBProgressHUD (~> 0.9.1)
+  - NYSegmentedControl
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
@@ -38,5 +40,6 @@ SPEC CHECKSUMS:
   EAIntroView: 50b85eedf414260e61330070ffe5947e72493a62
   EARestrictedScrollView: f86d61e16c61d3e93c84f8e96e83122a2a3b7631
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  NYSegmentedControl: 55b4f9eb652767cae9799623ec3e49e50029ef47
 
 COCOAPODS: 0.38.2

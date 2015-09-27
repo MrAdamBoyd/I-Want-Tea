@@ -12,6 +12,12 @@
 #import "AFNetworking.h"
 #import "FoursquareResponseParser.h"
 
+//Search mode
+typedef enum SearchMode {
+    SearchModeCoffee,
+    SearchModeTea
+} SearchMode;
+
 @protocol IWCLocationListenerDelegate <NSObject>
 
 - (void)userAuthorizedLocationUse;
@@ -32,11 +38,13 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property(nonatomic, strong) CLLocation *savedLocation;
 @property (assign) id<IWCLocationListenerDelegate> iwcDelegate;
+@property (nonatomic, assign) SearchMode mode;
 
 + (id)sharedController;
 
 - (BOOL)getUserFirstTimeOpeningApp;
 - (void)setUserFirstTimeOpeningApp:(BOOL) firstTime;
-- (void)searchForNearbyCoffee:(CLLocationCoordinate2D) coordinateToSearch;
+- (void)searchForNearbyCoffeeOrTea:(CLLocationCoordinate2D) coordinateToSearch;
+- (void)setMode:(SearchMode)newMode shouldSearchAgain:(BOOL)yesOrNo withPoint:(CLLocationCoordinate2D)location;
 
 @end

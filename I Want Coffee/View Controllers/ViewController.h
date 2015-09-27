@@ -16,6 +16,7 @@
 #import "MBProgressHUD.h"
 #import "IWCAboutPageBuilder.h"
 #import "CNPPopupController.h"
+#import "NYSegmentedControl.h"
 
 @interface ViewController : IWCViewController <EAIntroDelegate, IWCLocationListenerDelegate, MKMapViewDelegate>
 
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) UIToolbar *bottomToolbar;
 @property (nonatomic, strong) UIButton *searchAreaButton;
 @property (nonatomic, strong) CNPPopupController *popupController;
+@property (nonatomic, strong) NYSegmentedControl *segmentedControl;
 
 @end
 

@@ -27,6 +27,7 @@
 @synthesize bottomToolbar;
 @synthesize searchAreaButton;
 @synthesize popupController;
+@synthesize segmentedControl;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -67,7 +68,33 @@
     MKUserTrackingBarButtonItem *userTrackingButton = [[MKUserTrackingBarButtonItem alloc] initWithMapView:mainMapView];
     
     //Flex space
-    UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIBarButtonItem *flex1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    
+    
+    //Coffee/tea segmented control
+    segmentedControl = [[NYSegmentedControl alloc] initWithItems:@[@"Coffee", @"Tea"]];
+    
+    [segmentedControl addTarget:self action:@selector(segmentSelected:) forControlEvents:UIControlEventValueChanged];
+    // Customize and size the control
+    segmentedControl.selectedSegmentIndex = 0;
+    segmentedControl.titleTextColor = [UIColor tiltBlue];
+    segmentedControl.selectedTitleTextColor = [UIColor whiteColor];
+    segmentedControl.segmentIndicatorBackgroundColor = [UIColor tiltBlue];
+    segmentedControl.backgroundColor = [UIColor whiteColor];
+    segmentedControl.borderWidth = 0;
+    segmentedControl.segmentIndicatorBorderWidth = 0;
+    segmentedControl.segmentIndicatorInset = 2;
+    [segmentedControl sizeToFit]; //Before setting corner radius
+    segmentedControl.segmentIndicatorBorderColor = self.view.backgroundColor;
+    
+    [segmentedControl setCornerRadius:CGRectGetHeight(segmentedControl.frame)/2];
+    segmentedControl.usesSpringAnimations = true;
+    segmentedControl.tintColor = [UIColor whiteColor];
+    
+    UIBarButtonItem *segmentedControlButtonItem = [[UIBarButtonItem alloc] initWithCustomView:segmentedControl];
+    
+    //Flex space
+    UIBarButtonItem *flex2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     
     //Button that opens about popup
     UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
@@ -75,7 +102,7 @@
     UIBarButtonItem *infoButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
     
     //Setting buttons
-    [bottomToolbar setItems:@[userTrackingButton, flex, infoButtonItem]];
+    [bottomToolbar setItems:@[userTrackingButton, flex1, segmentedControlButtonItem, flex2, infoButtonItem]];
     
     //Button that lets user search for any area they want
     searchAreaButton = [[UIButton alloc] init];
@@ -124,13 +151,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)searchInArea {
-    //Remove all annotations first
-    [mainMapView removeAnnotations:mainMapView.annotations];
-    
-    [[IWCDataController sharedController] searchForNearbyCoffee:mainMapView.centerCoordinate];
-}
-
+//Show the popup that appears when user hits info button
 - (void)showAboutPopup {
     IWCAboutPageBuilder *builder = [[IWCAboutPageBuilder alloc] init];
     
@@ -142,8 +163,6 @@
     [popupController.theme setBackgroundColor:[UIColor whiteColor]];
     [popupController.theme setPopupStyle:CNPPopupStyleCentered];
     [popupController presentPopupControllerAnimated:YES];
-    
-    
 }
 
 //Shows the intro views if the user hasn't opened the app and/or if we don't have authorization to use gps
@@ -196,6 +215,34 @@
     [[[IWCDataController sharedController] locationManager] startUpdatingLocation];
     
     [mainMapView setUserTrackingMode:MKUserTrackingModeFollow];
+}
+
+#pragma mark Search methods
+//"Search in Area" button touched
+- (void)searchInArea {
+    //Remove all annotations first
+    [mainMapView removeAnnotations:mainMapView.annotations];
+    
+    [[IWCDataController sharedController] searchForNearbyCoffeeOrTea:mainMapView.centerCoordinate];
+}
+
+//Selecting coffee or tea
+- (void)segmentSelected:(UISegmentedControl *)sender {
+    BOOL shouldSearchAgain = [mainMapView.annotations count] > 1 ? YES : NO; //Search again if we have pins on the map
+    SearchMode mode = sender.selectedSegmentIndex == 0 ? SearchModeCoffee : SearchModeTea;
+    
+    NSString *toFindString = mode == SearchModeCoffee ? @"Tea" : @"Coffee";
+    NSString *toReplaceString = mode == SearchModeCoffee ? @"Coffee" : @"Tea";
+    
+    //Now title at shop should say "I Want Coffee" or "I Want Tea"
+    self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:toFindString withString:toReplaceString];
+    
+    //Removing all the annotations
+    if (shouldSearchAgain) {
+        [mainMapView removeAnnotations:mainMapView.annotations];
+    }
+    
+    [[IWCDataController sharedController] setMode:mode shouldSearchAgain:shouldSearchAgain withPoint:mainMapView.centerCoordinate];
 }
 
 #pragma mark EAIntroDelegate
@@ -258,8 +305,8 @@
         }];
         
         //We have annotation on the map, research
-        if (mainMapView.annotations.count > 1) {
-            [[IWCDataController sharedController] searchForNearbyCoffee:[[IWCDataController sharedController] savedLocation].coordinate];
+        if ([mainMapView.annotations count] > 1) {
+            [[IWCDataController sharedController] searchForNearbyCoffeeOrTea:[[IWCDataController sharedController] savedLocation].coordinate];
         }
         
     } else if (mode == MKUserTrackingModeNone) {
@@ -300,7 +347,7 @@
 - (void)userAuthorizedLocationUse {
     [self startTrackingUser];
 
-    self.titleLabel.text = @"I Want Coffee";
+    self.titleLabel.text = [self determineCorrectTitle];
 }
 
 - (void)userDeniedLocationUse {
@@ -308,7 +355,10 @@
         searchAreaButton.alpha = 1;
     }];
     
-    self.titleLabel.text = @"I Want Coffee - No GPS";
+    NSString *titleString = [self determineCorrectTitle];
+    titleString = [titleString stringByAppendingString:@" - No GPS"];
+    
+    self.titleLabel.text = titleString;
 }
 
 - (void)showLoadingHUD {
@@ -317,6 +367,18 @@
 
 -(void)hideLoadingHUD {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+//Getting the correct title based on whether the user is searching for coffee or tea
+- (NSString *)determineCorrectTitle {
+    SearchMode mode = segmentedControl.selectedSegmentIndex == 0 ? SearchModeCoffee : SearchModeTea;
+    
+    //Setting appropriate title
+    if (mode == SearchModeCoffee) {
+        return @"I Want Coffee";
+    } else {
+        return  @"I Want Tea";
+    }
 }
 
 @end

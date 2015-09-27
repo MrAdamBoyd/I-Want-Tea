@@ -20,6 +20,7 @@
 @synthesize locationManager;
 @synthesize iwcDelegate;
 @synthesize savedLocation;
+@synthesize mode;
 
 - (id)init {
     if (self = [super init]) {
@@ -96,7 +97,7 @@
     if ((!savedLocation || [savedLocation distanceFromLocation:newLocation] > 50) && newLocation.horizontalAccuracy < 75) {
         savedLocation = newLocation;
         
-        [self searchForNearbyCoffee:savedLocation.coordinate];
+        [self searchForNearbyCoffeeOrTea:savedLocation.coordinate];
     }
 }
 
@@ -117,13 +118,15 @@
     
     NSString *locationString = [self buildLocationString:coordinate];
     [parameters setValue:locationString forKey:@"ll"];
-    [parameters setValue:@"coffee" forKey:@"query"];
+    
+    NSString *searchModeString = mode == SearchModeCoffee ? @"coffee" : @"tea";
+    [parameters setValue:searchModeString forKey:@"query"];
     
     return parameters;
 }
 
 //Makes a search request on the Foursquare API. If the request is successful, it will add the pins to the MKMapView on the ViewController.
-- (void)searchForNearbyCoffee:(CLLocationCoordinate2D) coordinateToSearch {
+- (void)searchForNearbyCoffeeOrTea:(CLLocationCoordinate2D) coordinateToSearch {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = [self buildParameters:coordinateToSearch];
     
@@ -154,5 +157,13 @@
     }];
 }
 
+- (void)setMode:(SearchMode)newMode shouldSearchAgain:(BOOL)yesOrNo withPoint:(CLLocationCoordinate2D)location {
+    self.mode = newMode;
+    
+    //We should search again
+    if (yesOrNo) {
+        [self searchForNearbyCoffeeOrTea:location];
+    }
+}
 
 @end

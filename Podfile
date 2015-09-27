@@ -6,4 +6,5 @@ target 'I Want Coffee' do
   pod "AFNetworking", "~> 2.0"
   pod 'MBProgressHUD', '~> 0.9.1'
   pod 'CNPPopupController'
+  pod 'NYSegmentedControl'
 end
