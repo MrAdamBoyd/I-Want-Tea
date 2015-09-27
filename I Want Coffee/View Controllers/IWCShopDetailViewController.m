@@ -53,6 +53,10 @@
     [descArray addObject:shop.formattedAddress];
     [actionArray addObject:[NSString stringWithFormat:@"http://maps.apple.com?address=%@", shop.urlReadyAddress]];
     
+    [titleArray addObject:@"More"];
+    [descArray addObject:@"Tap to view more info"];
+    [actionArray addObject:[NSString stringWithFormat:@"https://foursquare.com/v/%@", shop.ident]];
+    
     return self;
 }
 
@@ -135,6 +139,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+//Simple static height for all cells
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 100;
 }

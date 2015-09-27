@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) NSString *name;
 
+@property (nonatomic, strong) NSString *ident;
+
 @property (nonatomic, strong) NSString *unformattedPhone;
 @property (nonatomic, strong) NSString *phoneNumber;
 @property (nonatomic, strong) NSString *twitter;

@@ -29,6 +29,8 @@
     
     shop.name = [dictionary objectForKey:@"name"];
     
+    shop.ident = [dictionary objectForKey:@"id"];
+    
     NSDictionary *contact = [dictionary objectForKey:@"contact"];
     shop.unformattedPhone = [contact objectForKey:@"phone"];
     shop.phoneNumber = [contact objectForKey:@"formattedPhone"];
