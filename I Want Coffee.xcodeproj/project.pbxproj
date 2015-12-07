@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		662D038B1BB76BFE0035AD9E /* IWCAboutPageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 662D038A1BB76BFE0035AD9E /* IWCAboutPageBuilder.m */; settings = {ASSET_TAGS = (); }; };
-		662D038D1BB78B6B0035AD9E /* Picture Attributions in Resources */ = {isa = PBXBuildFile; fileRef = 662D038C1BB78B6B0035AD9E /* Picture Attributions */; settings = {ASSET_TAGS = (); }; };
-		66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */; settings = {ASSET_TAGS = (); }; };
-		66959EC11BB4B9A600B4A1E5 /* IWCDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959EC01BB4B9A600B4A1E5 /* IWCDataController.m */; settings = {ASSET_TAGS = (); }; };
-		66959EC61BB4D33400B4A1E5 /* Coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 66959EC51BB4D33400B4A1E5 /* Coffee.png */; settings = {ASSET_TAGS = (); }; };
-		66959F0A1BB4D55100B4A1E5 /* CoffeeArt.png in Resources */ = {isa = PBXBuildFile; fileRef = 66959F091BB4D55100B4A1E5 /* CoffeeArt.png */; settings = {ASSET_TAGS = (); }; };
-		66959F0E1BB4D62700B4A1E5 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959F0D1BB4D62700B4A1E5 /* UIImage+ImageEffects.m */; settings = {ASSET_TAGS = (); }; };
-		66959F111BB4EB1400B4A1E5 /* UIColor+IWCColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959F101BB4EB1400B4A1E5 /* UIColor+IWCColors.m */; settings = {ASSET_TAGS = (); }; };
+		662D038B1BB76BFE0035AD9E /* IWCAboutPageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 662D038A1BB76BFE0035AD9E /* IWCAboutPageBuilder.m */; };
+		662D038D1BB78B6B0035AD9E /* Picture Attributions in Resources */ = {isa = PBXBuildFile; fileRef = 662D038C1BB78B6B0035AD9E /* Picture Attributions */; };
+		66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */; };
+		66959EC11BB4B9A600B4A1E5 /* IWCDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959EC01BB4B9A600B4A1E5 /* IWCDataController.m */; };
+		66959EC61BB4D33400B4A1E5 /* Coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 66959EC51BB4D33400B4A1E5 /* Coffee.png */; };
+		66959F0A1BB4D55100B4A1E5 /* CoffeeArt.png in Resources */ = {isa = PBXBuildFile; fileRef = 66959F091BB4D55100B4A1E5 /* CoffeeArt.png */; };
+		66959F0E1BB4D62700B4A1E5 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959F0D1BB4D62700B4A1E5 /* UIImage+ImageEffects.m */; };
+		66959F111BB4EB1400B4A1E5 /* UIColor+IWCColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959F101BB4EB1400B4A1E5 /* UIColor+IWCColors.m */; };
 		66A770711BB4AA9100DD7A1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770701BB4AA9100DD7A1B /* main.m */; };
 		66A770741BB4AA9100DD7A1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770731BB4AA9100DD7A1B /* AppDelegate.m */; };
 		66A770771BB4AA9100DD7A1B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770761BB4AA9100DD7A1B /* ViewController.m */; };
@@ -23,12 +23,12 @@
 		66A7707F1BB4AA9100DD7A1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66A7707D1BB4AA9100DD7A1B /* LaunchScreen.storyboard */; };
 		66A7708A1BB4AA9100DD7A1B /* I_Want_CoffeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770891BB4AA9100DD7A1B /* I_Want_CoffeeTests.m */; };
 		66A770951BB4AA9100DD7A1B /* I_Want_CoffeeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770941BB4AA9100DD7A1B /* I_Want_CoffeeUITests.m */; };
-		66AA247F1BB60697004977C2 /* FoursquareResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA247E1BB60697004977C2 /* FoursquareResponseParser.m */; settings = {ASSET_TAGS = (); }; };
-		66AA24821BB606CA004977C2 /* IWCShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24811BB606CA004977C2 /* IWCShop.m */; settings = {ASSET_TAGS = (); }; };
-		66AA24861BB62A84004977C2 /* IWCMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24851BB62A84004977C2 /* IWCMapAnnotation.m */; settings = {ASSET_TAGS = (); }; };
-		66AA24891BB62FB2004977C2 /* IWCShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24881BB62FB2004977C2 /* IWCShopDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
-		66AA248C1BB63366004977C2 /* IWCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA248B1BB63366004977C2 /* IWCViewController.m */; settings = {ASSET_TAGS = (); }; };
-		66AA248F1BB74ADE004977C2 /* IWCDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA248E1BB74ADD004977C2 /* IWCDetailTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		66AA247F1BB60697004977C2 /* FoursquareResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA247E1BB60697004977C2 /* FoursquareResponseParser.m */; };
+		66AA24821BB606CA004977C2 /* IWCShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24811BB606CA004977C2 /* IWCShop.m */; };
+		66AA24861BB62A84004977C2 /* IWCMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24851BB62A84004977C2 /* IWCMapAnnotation.m */; };
+		66AA24891BB62FB2004977C2 /* IWCShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24881BB62FB2004977C2 /* IWCShopDetailViewController.m */; };
+		66AA248C1BB63366004977C2 /* IWCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA248B1BB63366004977C2 /* IWCViewController.m */; };
+		66AA248F1BB74ADE004977C2 /* IWCDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA248E1BB74ADD004977C2 /* IWCDetailTableViewCell.m */; };
 		843A480F7CECBECB693EF35D /* libPods-I Want Coffee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8DAC26E213E40538E3A384 /* libPods-I Want Coffee.a */; };
 /* End PBXBuildFile section */
 
@@ -345,6 +345,7 @@
 				TargetAttributes = {
 					66A7706B1BB4AA9100DD7A1B = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 6GHQ7P7EHA;
 					};
 					66A770841BB4AA9100DD7A1B = {
 						CreatedOnToolsVersion = 7.0;
@@ -599,6 +600,7 @@
 			baseConfigurationReference = B6E733AAF5536B6A5D18B954 /* Pods-I Want Coffee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "I Want Coffee/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -612,6 +614,7 @@
 			baseConfigurationReference = AD0BEA991A2F8B8ADCA4D659 /* Pods-I Want Coffee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "I Want Coffee/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
