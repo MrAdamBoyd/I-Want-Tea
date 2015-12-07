@@ -18,7 +18,7 @@
     [paragraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
     [paragraphStyle setAlignment:NSTextAlignmentCenter];
     
-    NSAttributedString *titleString = [[NSAttributedString alloc] initWithString:@"I Want Coffee" attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSParagraphStyleAttributeName : paragraphStyle, NSForegroundColorAttributeName : [UIColor blackColor]}];
+    NSAttributedString *titleString = [[NSAttributedString alloc] initWithString:@"I Want Tea" attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSParagraphStyleAttributeName : paragraphStyle, NSForegroundColorAttributeName : [UIColor blackColor]}];
     NSAttributedString *writtenByString = [[NSAttributedString alloc] initWithString:@"Written by Adam Boyd" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:18], NSParagraphStyleAttributeName : paragraphStyle, NSForegroundColorAttributeName : [UIColor blackColor]}];
     
     UILabel *titleLabel = [[UILabel alloc] init];

@@ -34,7 +34,7 @@
     
     [[IWCDataController sharedController] setIwcDelegate:self];
     
-    self.titleLabel.text = @"I Want Coffee";
+    self.titleLabel.text = @"I Want Tea";
     
     //Map View
     mainMapView = [[MKMapView alloc] init];
@@ -72,7 +72,7 @@
     
     
     //Coffee/tea segmented control
-    segmentedControl = [[NYSegmentedControl alloc] initWithItems:@[@"Coffee", @"Tea"]];
+    segmentedControl = [[NYSegmentedControl alloc] initWithItems:@[@"Tea", @"Coffee"]];
     
     [segmentedControl addTarget:self action:@selector(segmentSelected:) forControlEvents:UIControlEventValueChanged];
     // Customize and size the control
@@ -172,10 +172,10 @@
     if ([[IWCDataController sharedController] getUserFirstTimeOpeningApp]) {
     //Introducing the app
         EAIntroPage *page1 = [[EAIntroPage alloc] init];
-        page1.title = @"I Want Coffee";
+        page1.title = @"I Want Tea";
         page1.titleFont = kIntroViewTitleFont;
         page1.titlePositionY = kIntroViewTitleY;
-        page1.desc = @"This app is the fastest way to find the coffee around you. Simply open the app and enjoy.";
+        page1.desc = @"This app is the fastest way to find the tea around you. Simply open the app and enjoy.";
         page1.descFont = kIntroViewDescFont;
         page1.descPositionY = kIntroViewDescY;
         page1.bgImage = kIntroPage1Image;
@@ -186,7 +186,7 @@
         page2.title = @"GPS Usage";
         page2.titleFont = kIntroViewTitleFont;
         page2.titlePositionY = kIntroViewTitleY;
-        page2.desc = @"I Want Coffee needs to use the GPS function on your device in order to function properly. You will be asked for permission when you close this page.";
+        page2.desc = @"I Want Tea needs to use the GPS function on your device in order to function properly. You will be asked for permission when you close this page.";
         page2.descFont = kIntroViewDescFont;
         page2.descPositionY = kIntroViewDescY;
         page2.bgImage = [UIImage imageNamed:@"CoffeeArt.png"];
@@ -229,10 +229,10 @@
 //Selecting coffee or tea
 - (void)segmentSelected:(UISegmentedControl *)sender {
     BOOL shouldSearchAgain = [mainMapView.annotations count] > 0 ? YES : NO; //Search again if we have pins on the map
-    SearchMode mode = sender.selectedSegmentIndex == 0 ? SearchModeCoffee : SearchModeTea;
+    SearchMode mode = sender.selectedSegmentIndex == 0 ? SearchModeTea : SearchModeCoffee;
     
-    NSString *toFindString = mode == SearchModeCoffee ? @"Tea" : @"Coffee";
-    NSString *toReplaceString = mode == SearchModeCoffee ? @"Coffee" : @"Tea";
+    NSString *toFindString = mode == SearchModeTea ? @"Coffee" : @"Tea";
+    NSString *toReplaceString = mode == SearchModeTea ? @"Tea" : @"Coffee";
     
     //Now title at shop should say "I Want Coffee" or "I Want Tea"
     self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:toFindString withString:toReplaceString];
@@ -371,7 +371,7 @@
 
 //Getting the correct title based on whether the user is searching for coffee or tea
 - (NSString *)determineCorrectTitle {
-    SearchMode mode = segmentedControl.selectedSegmentIndex == 0 ? SearchModeCoffee : SearchModeTea;
+    SearchMode mode = segmentedControl.selectedSegmentIndex == 0 ? SearchModeTea : SearchModeCoffee;
     
     //Setting appropriate title
     if (mode == SearchModeCoffee) {

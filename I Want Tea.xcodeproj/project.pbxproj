@@ -63,7 +63,7 @@
 		66959F0D1BB4D62700B4A1E5 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "Categories/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		66959F0F1BB4EB1400B4A1E5 /* UIColor+IWCColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+IWCColors.h"; path = "Categories/UIColor+IWCColors.h"; sourceTree = "<group>"; };
 		66959F101BB4EB1400B4A1E5 /* UIColor+IWCColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+IWCColors.m"; path = "Categories/UIColor+IWCColors.m"; sourceTree = "<group>"; };
-		66A7706C1BB4AA9100DD7A1B /* I Want Coffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I Want Coffee.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66A7706C1BB4AA9100DD7A1B /* I Want Tea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I Want Tea.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66A770701BB4AA9100DD7A1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		66A770721BB4AA9100DD7A1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		66A770731BB4AA9100DD7A1B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,10 +73,10 @@
 		66A7707B1BB4AA9100DD7A1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66A7707E1BB4AA9100DD7A1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66A770801BB4AA9100DD7A1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		66A770851BB4AA9100DD7A1B /* I Want CoffeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "I Want CoffeeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66A770851BB4AA9100DD7A1B /* I Want Tea.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "I Want Tea.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66A770891BB4AA9100DD7A1B /* I_Want_CoffeeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = I_Want_CoffeeTests.m; sourceTree = "<group>"; };
 		66A7708B1BB4AA9100DD7A1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		66A770901BB4AA9100DD7A1B /* I Want CoffeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "I Want CoffeeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66A770901BB4AA9100DD7A1B /* I Want Tea.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "I Want Tea.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66A770941BB4AA9100DD7A1B /* I_Want_CoffeeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = I_Want_CoffeeUITests.m; sourceTree = "<group>"; };
 		66A770961BB4AA9100DD7A1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66AA247D1BB60697004977C2 /* FoursquareResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoursquareResponseParser.h; path = Functional/FoursquareResponseParser.h; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 		66A770631BB4AA9100DD7A1B = {
 			isa = PBXGroup;
 			children = (
-				66A7706E1BB4AA9100DD7A1B /* I Want Coffee */,
+				66A7706E1BB4AA9100DD7A1B /* I Want Tea */,
 				66A770881BB4AA9100DD7A1B /* I Want CoffeeTests */,
 				66A770931BB4AA9100DD7A1B /* I Want CoffeeUITests */,
 				66A7706D1BB4AA9100DD7A1B /* Products */,
@@ -189,14 +189,14 @@
 		66A7706D1BB4AA9100DD7A1B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				66A7706C1BB4AA9100DD7A1B /* I Want Coffee.app */,
-				66A770851BB4AA9100DD7A1B /* I Want CoffeeTests.xctest */,
-				66A770901BB4AA9100DD7A1B /* I Want CoffeeUITests.xctest */,
+				66A7706C1BB4AA9100DD7A1B /* I Want Tea.app */,
+				66A770851BB4AA9100DD7A1B /* I Want Tea.xctest */,
+				66A770901BB4AA9100DD7A1B /* I Want Tea.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		66A7706E1BB4AA9100DD7A1B /* I Want Coffee */ = {
+		66A7706E1BB4AA9100DD7A1B /* I Want Tea */ = {
 			isa = PBXGroup;
 			children = (
 				662D038C1BB78B6B0035AD9E /* Picture Attributions */,
@@ -214,6 +214,7 @@
 				66A770801BB4AA9100DD7A1B /* Info.plist */,
 				66A7706F1BB4AA9100DD7A1B /* Supporting Files */,
 			);
+			name = "I Want Tea";
 			path = "I Want Coffee";
 			sourceTree = "<group>";
 		};
@@ -279,9 +280,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		66A7706B1BB4AA9100DD7A1B /* I Want Coffee */ = {
+		66A7706B1BB4AA9100DD7A1B /* I Want Tea */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66A770991BB4AA9100DD7A1B /* Build configuration list for PBXNativeTarget "I Want Coffee" */;
+			buildConfigurationList = 66A770991BB4AA9100DD7A1B /* Build configuration list for PBXNativeTarget "I Want Tea" */;
 			buildPhases = (
 				2B9D7292D253CB519792950A /* Check Pods Manifest.lock */,
 				66A770681BB4AA9100DD7A1B /* Sources */,
@@ -293,14 +294,14 @@
 			);
 			dependencies = (
 			);
-			name = "I Want Coffee";
+			name = "I Want Tea";
 			productName = "I Want Coffee";
-			productReference = 66A7706C1BB4AA9100DD7A1B /* I Want Coffee.app */;
+			productReference = 66A7706C1BB4AA9100DD7A1B /* I Want Tea.app */;
 			productType = "com.apple.product-type.application";
 		};
-		66A770841BB4AA9100DD7A1B /* I Want CoffeeTests */ = {
+		66A770841BB4AA9100DD7A1B /* I Want TeaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66A7709C1BB4AA9100DD7A1B /* Build configuration list for PBXNativeTarget "I Want CoffeeTests" */;
+			buildConfigurationList = 66A7709C1BB4AA9100DD7A1B /* Build configuration list for PBXNativeTarget "I Want TeaTests" */;
 			buildPhases = (
 				66A770811BB4AA9100DD7A1B /* Sources */,
 				66A770821BB4AA9100DD7A1B /* Frameworks */,
@@ -311,14 +312,14 @@
 			dependencies = (
 				66A770871BB4AA9100DD7A1B /* PBXTargetDependency */,
 			);
-			name = "I Want CoffeeTests";
+			name = "I Want TeaTests";
 			productName = "I Want CoffeeTests";
-			productReference = 66A770851BB4AA9100DD7A1B /* I Want CoffeeTests.xctest */;
+			productReference = 66A770851BB4AA9100DD7A1B /* I Want Tea.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		66A7708F1BB4AA9100DD7A1B /* I Want CoffeeUITests */ = {
+		66A7708F1BB4AA9100DD7A1B /* I Want TeaUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66A7709F1BB4AA9100DD7A1B /* Build configuration list for PBXNativeTarget "I Want CoffeeUITests" */;
+			buildConfigurationList = 66A7709F1BB4AA9100DD7A1B /* Build configuration list for PBXNativeTarget "I Want TeaUITests" */;
 			buildPhases = (
 				66A7708C1BB4AA9100DD7A1B /* Sources */,
 				66A7708D1BB4AA9100DD7A1B /* Frameworks */,
@@ -329,9 +330,9 @@
 			dependencies = (
 				66A770921BB4AA9100DD7A1B /* PBXTargetDependency */,
 			);
-			name = "I Want CoffeeUITests";
+			name = "I Want TeaUITests";
 			productName = "I Want CoffeeUITests";
-			productReference = 66A770901BB4AA9100DD7A1B /* I Want CoffeeUITests.xctest */;
+			productReference = 66A770901BB4AA9100DD7A1B /* I Want Tea.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -357,7 +358,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 66A770671BB4AA9100DD7A1B /* Build configuration list for PBXProject "I Want Coffee" */;
+			buildConfigurationList = 66A770671BB4AA9100DD7A1B /* Build configuration list for PBXProject "I Want Tea" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -370,9 +371,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				66A7706B1BB4AA9100DD7A1B /* I Want Coffee */,
-				66A770841BB4AA9100DD7A1B /* I Want CoffeeTests */,
-				66A7708F1BB4AA9100DD7A1B /* I Want CoffeeUITests */,
+				66A7706B1BB4AA9100DD7A1B /* I Want Tea */,
+				66A770841BB4AA9100DD7A1B /* I Want TeaTests */,
+				66A7708F1BB4AA9100DD7A1B /* I Want TeaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -483,12 +484,12 @@
 /* Begin PBXTargetDependency section */
 		66A770871BB4AA9100DD7A1B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 66A7706B1BB4AA9100DD7A1B /* I Want Coffee */;
+			target = 66A7706B1BB4AA9100DD7A1B /* I Want Tea */;
 			targetProxy = 66A770861BB4AA9100DD7A1B /* PBXContainerItemProxy */;
 		};
 		66A770921BB4AA9100DD7A1B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 66A7706B1BB4AA9100DD7A1B /* I Want Coffee */;
+			target = 66A7706B1BB4AA9100DD7A1B /* I Want Tea */;
 			targetProxy = 66A770911BB4AA9100DD7A1B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -604,8 +605,8 @@
 				INFOPLIST_FILE = "I Want Coffee/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Adam-Boyd.I-Want-Coffee";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "Adam-Boyd.I-Want-Tea";
+				PRODUCT_NAME = "I Want Tea";
 			};
 			name = Debug;
 		};
@@ -618,8 +619,8 @@
 				INFOPLIST_FILE = "I Want Coffee/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Adam-Boyd.I-Want-Coffee";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "Adam-Boyd.I-Want-Tea";
+				PRODUCT_NAME = "I Want Tea";
 			};
 			name = Release;
 		};
@@ -630,8 +631,8 @@
 				INFOPLIST_FILE = "I Want CoffeeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Adam-Boyd.I-Want-CoffeeTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/I Want Coffee.app/I Want Coffee";
+				PRODUCT_NAME = "I Want Tea";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/I Want Tea.app/I Want Tea";
 			};
 			name = Debug;
 		};
@@ -642,8 +643,8 @@
 				INFOPLIST_FILE = "I Want CoffeeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Adam-Boyd.I-Want-CoffeeTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/I Want Coffee.app/I Want Coffee";
+				PRODUCT_NAME = "I Want Tea";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/I Want Tea.app/I Want Tea";
 			};
 			name = Release;
 		};
@@ -653,7 +654,7 @@
 				INFOPLIST_FILE = "I Want CoffeeUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Adam-Boyd.I-Want-CoffeeUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "I Want Tea";
 				TEST_TARGET_NAME = "I Want Coffee";
 				USES_XCTRUNNER = YES;
 			};
@@ -665,7 +666,7 @@
 				INFOPLIST_FILE = "I Want CoffeeUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Adam-Boyd.I-Want-CoffeeUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "I Want Tea";
 				TEST_TARGET_NAME = "I Want Coffee";
 				USES_XCTRUNNER = YES;
 			};
@@ -674,7 +675,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		66A770671BB4AA9100DD7A1B /* Build configuration list for PBXProject "I Want Coffee" */ = {
+		66A770671BB4AA9100DD7A1B /* Build configuration list for PBXProject "I Want Tea" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66A770971BB4AA9100DD7A1B /* Debug */,
@@ -683,7 +684,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		66A770991BB4AA9100DD7A1B /* Build configuration list for PBXNativeTarget "I Want Coffee" */ = {
+		66A770991BB4AA9100DD7A1B /* Build configuration list for PBXNativeTarget "I Want Tea" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66A7709A1BB4AA9100DD7A1B /* Debug */,
@@ -692,7 +693,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		66A7709C1BB4AA9100DD7A1B /* Build configuration list for PBXNativeTarget "I Want CoffeeTests" */ = {
+		66A7709C1BB4AA9100DD7A1B /* Build configuration list for PBXNativeTarget "I Want TeaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66A7709D1BB4AA9100DD7A1B /* Debug */,
@@ -701,7 +702,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		66A7709F1BB4AA9100DD7A1B /* Build configuration list for PBXNativeTarget "I Want CoffeeUITests" */ = {
+		66A7709F1BB4AA9100DD7A1B /* Build configuration list for PBXNativeTarget "I Want TeaUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66A770A01BB4AA9100DD7A1B /* Debug */,
