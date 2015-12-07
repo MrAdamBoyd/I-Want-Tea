@@ -10,8 +10,8 @@
 
 #define kCurrentUserKey @"kCurrentUserKey"
 
-#define kFSClientID @"YOUR_CLIENT_ID_HERE"
-#define kFSClientSecret @"YOUR_SECRET_HERE"
+#define kFSClientID @"OS1VJWS2NDEVGRGZFR2ZPSCHFHH1XKC1LGVUZRTICRL2KZ2O"
+#define kFSClientSecret @"TRYE2KREOYL0IKHANOXDTLGFI2KN0CRL54WG2KRBUINOIPTO"
 #define kFSVersion @"20130815"
 
 @implementation IWCDataController

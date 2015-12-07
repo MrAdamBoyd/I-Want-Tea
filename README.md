@@ -1,5 +1,5 @@
-# I Want Coffee
-If you want coffee as soon as possible, this is the app for you. Simply open the app and see the closest coffee shops closest to you right now.
+# I Want Tea
+If you want tea as soon as possible, this is the app for you. Simply open the app and see the closest tea shops closest to you right now.
 
 Note: If you're trying to build the app with Xcode, you need to replace `kFSClientID` and `kFSClientSecret` in IWCDataController.m with your own from the Foursquare API.
 
