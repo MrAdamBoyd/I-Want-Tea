@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		228F9AE2F6022BC842FC5AA3 /* libPods-I Want Tea.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A5ADC4D7066233C0AC6CD1 /* libPods-I Want Tea.a */; };
 		662D038B1BB76BFE0035AD9E /* IWCAboutPageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 662D038A1BB76BFE0035AD9E /* IWCAboutPageBuilder.m */; };
 		662D038D1BB78B6B0035AD9E /* Picture Attributions in Resources */ = {isa = PBXBuildFile; fileRef = 662D038C1BB78B6B0035AD9E /* Picture Attributions */; };
 		66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */; };
@@ -94,6 +95,7 @@
 		6A8DAC26E213E40538E3A384 /* libPods-I Want Coffee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-I Want Coffee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0BEA991A2F8B8ADCA4D659 /* Pods-I Want Coffee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I Want Coffee.release.xcconfig"; path = "Pods/Target Support Files/Pods-I Want Coffee/Pods-I Want Coffee.release.xcconfig"; sourceTree = "<group>"; };
 		B6E733AAF5536B6A5D18B954 /* Pods-I Want Coffee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I Want Coffee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-I Want Coffee/Pods-I Want Coffee.debug.xcconfig"; sourceTree = "<group>"; };
+		E7A5ADC4D7066233C0AC6CD1 /* libPods-I Want Tea.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-I Want Tea.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				843A480F7CECBECB693EF35D /* libPods-I Want Coffee.a in Frameworks */,
+				228F9AE2F6022BC842FC5AA3 /* libPods-I Want Tea.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				6A8DAC26E213E40538E3A384 /* libPods-I Want Coffee.a */,
+				E7A5ADC4D7066233C0AC6CD1 /* libPods-I Want Tea.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -288,6 +292,7 @@
 				66A770691BB4AA9100DD7A1B /* Frameworks */,
 				66A7706A1BB4AA9100DD7A1B /* Resources */,
 				D805673F9BA86CB3F7C62239 /* Copy Pods Resources */,
+				A4680215E2E49F7FB94A29F2 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -423,6 +428,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		A4680215E2E49F7FB94A29F2 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-I Want Tea/Pods-I Want Tea-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D805673F9BA86CB3F7C62239 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -435,7 +455,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-I Want Coffee/Pods-I Want Coffee-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-I Want Tea/Pods-I Want Tea-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
