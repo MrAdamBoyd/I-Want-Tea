@@ -178,8 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				66A7706E1BB4AA9100DD7A1B /* I Want Tea */,
-				66A770881BB4AA9100DD7A1B /* I Want CoffeeTests */,
-				66A770931BB4AA9100DD7A1B /* I Want CoffeeUITests */,
+				66A770881BB4AA9100DD7A1B /* I Want TeaTests */,
+				66A770931BB4AA9100DD7A1B /* I Want TeaUITests */,
 				66A7706D1BB4AA9100DD7A1B /* Products */,
 				9AD179ECC37BD118FB2C5AEB /* Pods */,
 				192DD45B8D30DD20063EB0F4 /* Frameworks */,
@@ -214,8 +214,7 @@
 				66A770801BB4AA9100DD7A1B /* Info.plist */,
 				66A7706F1BB4AA9100DD7A1B /* Supporting Files */,
 			);
-			name = "I Want Tea";
-			path = "I Want Coffee";
+			path = "I Want Tea";
 			sourceTree = "<group>";
 		};
 		66A7706F1BB4AA9100DD7A1B /* Supporting Files */ = {
@@ -228,22 +227,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		66A770881BB4AA9100DD7A1B /* I Want CoffeeTests */ = {
+		66A770881BB4AA9100DD7A1B /* I Want TeaTests */ = {
 			isa = PBXGroup;
 			children = (
 				66A770891BB4AA9100DD7A1B /* I_Want_CoffeeTests.m */,
 				66A7708B1BB4AA9100DD7A1B /* Info.plist */,
 			);
-			path = "I Want CoffeeTests";
+			path = "I Want TeaTests";
 			sourceTree = "<group>";
 		};
-		66A770931BB4AA9100DD7A1B /* I Want CoffeeUITests */ = {
+		66A770931BB4AA9100DD7A1B /* I Want TeaUITests */ = {
 			isa = PBXGroup;
 			children = (
 				66A770941BB4AA9100DD7A1B /* I_Want_CoffeeUITests.m */,
 				66A770961BB4AA9100DD7A1B /* Info.plist */,
 			);
-			path = "I Want CoffeeUITests";
+			path = "I Want TeaUITests";
 			sourceTree = "<group>";
 		};
 		66AA247C1BB60672004977C2 /* Functional */ = {
@@ -602,7 +601,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "I Want Coffee/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/I Want Tea/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Adam-Boyd.I-Want-Tea";
@@ -616,7 +615,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "I Want Coffee/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/I Want Tea/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Adam-Boyd.I-Want-Tea";
