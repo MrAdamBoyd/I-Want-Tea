@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		228F9AE2F6022BC842FC5AA3 /* libPods-I Want Tea.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A5ADC4D7066233C0AC6CD1 /* libPods-I Want Tea.a */; };
 		662D038B1BB76BFE0035AD9E /* IWCAboutPageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 662D038A1BB76BFE0035AD9E /* IWCAboutPageBuilder.m */; };
 		662D038D1BB78B6B0035AD9E /* Picture Attributions in Resources */ = {isa = PBXBuildFile; fileRef = 662D038C1BB78B6B0035AD9E /* Picture Attributions */; };
 		66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */; };
@@ -30,7 +29,7 @@
 		66AA24891BB62FB2004977C2 /* IWCShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24881BB62FB2004977C2 /* IWCShopDetailViewController.m */; };
 		66AA248C1BB63366004977C2 /* IWCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA248B1BB63366004977C2 /* IWCViewController.m */; };
 		66AA248F1BB74ADE004977C2 /* IWCDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA248E1BB74ADD004977C2 /* IWCDetailTableViewCell.m */; };
-		843A480F7CECBECB693EF35D /* libPods-I Want Coffee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8DAC26E213E40538E3A384 /* libPods-I Want Coffee.a */; };
+		88D1675A382C69009E73633F /* libPods-I Want Tea.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF25A270EE5B1E5C8F30C49 /* libPods-I Want Tea.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E973B01876AB2E6BDCAD4DD /* Pods-I Want Tea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I Want Tea.debug.xcconfig"; path = "Pods/Target Support Files/Pods-I Want Tea/Pods-I Want Tea.debug.xcconfig"; sourceTree = "<group>"; };
 		662D03891BB76BFE0035AD9E /* IWCAboutPageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCAboutPageBuilder.h; path = Functional/IWCAboutPageBuilder.h; sourceTree = "<group>"; };
 		662D038A1BB76BFE0035AD9E /* IWCAboutPageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCAboutPageBuilder.m; path = Functional/IWCAboutPageBuilder.m; sourceTree = "<group>"; };
 		662D038C1BB78B6B0035AD9E /* Picture Attributions */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Picture Attributions"; sourceTree = "<group>"; };
@@ -92,10 +92,8 @@
 		66AA248B1BB63366004977C2 /* IWCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCViewController.m; path = "View Controllers/IWCViewController.m"; sourceTree = "<group>"; };
 		66AA248D1BB74ADD004977C2 /* IWCDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCDetailTableViewCell.h; path = Views/IWCDetailTableViewCell.h; sourceTree = "<group>"; };
 		66AA248E1BB74ADD004977C2 /* IWCDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCDetailTableViewCell.m; path = Views/IWCDetailTableViewCell.m; sourceTree = "<group>"; };
-		6A8DAC26E213E40538E3A384 /* libPods-I Want Coffee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-I Want Coffee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD0BEA991A2F8B8ADCA4D659 /* Pods-I Want Coffee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I Want Coffee.release.xcconfig"; path = "Pods/Target Support Files/Pods-I Want Coffee/Pods-I Want Coffee.release.xcconfig"; sourceTree = "<group>"; };
-		B6E733AAF5536B6A5D18B954 /* Pods-I Want Coffee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I Want Coffee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-I Want Coffee/Pods-I Want Coffee.debug.xcconfig"; sourceTree = "<group>"; };
-		E7A5ADC4D7066233C0AC6CD1 /* libPods-I Want Tea.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-I Want Tea.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DF25A270EE5B1E5C8F30C49 /* libPods-I Want Tea.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-I Want Tea.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1777CF9FF784BB57F05BE80 /* Pods-I Want Tea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I Want Tea.release.xcconfig"; path = "Pods/Target Support Files/Pods-I Want Tea/Pods-I Want Tea.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				843A480F7CECBECB693EF35D /* libPods-I Want Coffee.a in Frameworks */,
-				228F9AE2F6022BC842FC5AA3 /* libPods-I Want Tea.a in Frameworks */,
+				88D1675A382C69009E73633F /* libPods-I Want Tea.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,13 +122,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		192DD45B8D30DD20063EB0F4 /* Frameworks */ = {
+		4D8D1DA36BFA9F25AA7394B3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6A8DAC26E213E40538E3A384 /* libPods-I Want Coffee.a */,
-				E7A5ADC4D7066233C0AC6CD1 /* libPods-I Want Tea.a */,
+				1E973B01876AB2E6BDCAD4DD /* Pods-I Want Tea.debug.xcconfig */,
+				E1777CF9FF784BB57F05BE80 /* Pods-I Want Tea.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		66959EB81BB4B4DD00B4A1E5 /* View Controllers */ = {
@@ -185,8 +182,8 @@
 				66A770881BB4AA9100DD7A1B /* I Want TeaTests */,
 				66A770931BB4AA9100DD7A1B /* I Want TeaUITests */,
 				66A7706D1BB4AA9100DD7A1B /* Products */,
-				9AD179ECC37BD118FB2C5AEB /* Pods */,
-				192DD45B8D30DD20063EB0F4 /* Frameworks */,
+				4D8D1DA36BFA9F25AA7394B3 /* Pods */,
+				9E4270ADB5B45D326419D62B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -271,13 +268,12 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		9AD179ECC37BD118FB2C5AEB /* Pods */ = {
+		9E4270ADB5B45D326419D62B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B6E733AAF5536B6A5D18B954 /* Pods-I Want Coffee.debug.xcconfig */,
-				AD0BEA991A2F8B8ADCA4D659 /* Pods-I Want Coffee.release.xcconfig */,
+				9DF25A270EE5B1E5C8F30C49 /* libPods-I Want Tea.a */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,12 +283,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66A770991BB4AA9100DD7A1B /* Build configuration list for PBXNativeTarget "I Want Tea" */;
 			buildPhases = (
-				2B9D7292D253CB519792950A /* Check Pods Manifest.lock */,
+				67657EAEF7D2F414D89BDA9C /* [CP] Check Pods Manifest.lock */,
 				66A770681BB4AA9100DD7A1B /* Sources */,
 				66A770691BB4AA9100DD7A1B /* Frameworks */,
 				66A7706A1BB4AA9100DD7A1B /* Resources */,
-				D805673F9BA86CB3F7C62239 /* Copy Pods Resources */,
-				A4680215E2E49F7FB94A29F2 /* Embed Pods Frameworks */,
+				D4F12E9A4341698D880E7153 /* [CP] Embed Pods Frameworks */,
+				1D324F681168E32E83798945 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -345,7 +341,7 @@
 		66A770641BB4AA9100DD7A1B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Adam Boyd";
 				TargetAttributes = {
 					66A7706B1BB4AA9100DD7A1B = {
@@ -413,49 +409,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2B9D7292D253CB519792950A /* Check Pods Manifest.lock */ = {
+		1D324F681168E32E83798945 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A4680215E2E49F7FB94A29F2 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-I Want Tea/Pods-I Want Tea-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D805673F9BA86CB3F7C62239 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-I Want Tea/Pods-I Want Tea-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67657EAEF7D2F414D89BDA9C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D4F12E9A4341698D880E7153 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-I Want Tea/Pods-I Want Tea-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -546,8 +542,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -590,8 +588,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -617,7 +617,7 @@
 		};
 		66A7709A1BB4AA9100DD7A1B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B6E733AAF5536B6A5D18B954 /* Pods-I Want Coffee.debug.xcconfig */;
+			baseConfigurationReference = 1E973B01876AB2E6BDCAD4DD /* Pods-I Want Tea.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -631,7 +631,7 @@
 		};
 		66A7709B1BB4AA9100DD7A1B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD0BEA991A2F8B8ADCA4D659 /* Pods-I Want Coffee.release.xcconfig */;
+			baseConfigurationReference = E1777CF9FF784BB57F05BE80 /* Pods-I Want Tea.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

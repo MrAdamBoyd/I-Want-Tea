@@ -11,7 +11,7 @@
 
 @implementation IWCAboutPageBuilder
 
-- (NSArray <UIView *> *)buildAboutPage:(SelectionHandler) handler {
+- (NSArray <UIView *> *)buildAboutPageFromViewController:(UIViewController *)presentingViewController handler:(SelectionHandler) handler {
     NSMutableArray<UIView *> *pageElements = [[NSMutableArray alloc] init];
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -44,8 +44,16 @@
     [openWebsiteButton setTitle:@"Go to Website" forState:UIControlStateNormal];
     [openWebsiteButton setBackgroundColor:[UIColor tiltBlue]];
     openWebsiteButton.layer.cornerRadius = 2.0;
+    
+    //No retain cycles here
+    __weak UIViewController *weakViewController = presentingViewController;
+    __weak CNPPopupButton *weakOpenWebsiteButton = openWebsiteButton;
+    
     [openWebsiteButton setSelectionHandler:^(CNPPopupButton *button) {
-        [[UIApplication sharedApplication] openURL:[[NSURL alloc] initWithString:kIWCWebsiteLink]];
+        handler(weakOpenWebsiteButton);
+        NSURL *websiteLink = [[NSURL alloc] initWithString:kIWCWebsiteLink];
+        SFSafariViewController *safariViewController = [[SFSafariViewController alloc] initWithURL:websiteLink];
+        [weakViewController presentViewController:safariViewController animated:YES completion:nil];
     }];
     
     //Open website and close popup buttons

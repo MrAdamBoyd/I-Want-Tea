@@ -2,9 +2,9 @@
 # platform :ios, '6.0'
 
 target 'I Want Tea' do
-  pod 'EAIntroView', '~> 2.7.0'
-  pod "AFNetworking", "~> 2.0"
-  pod 'MBProgressHUD', '~> 0.9.1'
+  pod 'EAIntroView'
+  pod "AFNetworking"
+  pod 'MBProgressHUD'
   pod 'CNPPopupController'
   pod 'NYSegmentedControl'
 end

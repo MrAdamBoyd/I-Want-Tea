@@ -155,9 +155,9 @@
 - (void)showAboutPopup {
     IWCAboutPageBuilder *builder = [[IWCAboutPageBuilder alloc] init];
     
-    popupController = [[CNPPopupController alloc] initWithContents:[builder buildAboutPage:^(CNPPopupButton *button) {
+    [self setPopupController:[[CNPPopupController alloc] initWithContents:[builder buildAboutPageFromViewController:self handler:^(CNPPopupButton *button) {
         [popupController dismissPopupControllerAnimated:YES];
-    }]];
+    }]]];
     [popupController setTheme:[CNPPopupTheme defaultTheme]];
     [popupController.theme setCornerRadius:2.0];
     [popupController.theme setBackgroundColor:[UIColor whiteColor]];

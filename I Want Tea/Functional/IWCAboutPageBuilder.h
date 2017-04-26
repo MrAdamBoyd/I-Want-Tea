@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SafariServices/SafariServices.h>
 #import "CNPPopupController.h"
 #import "UIColor+IWCColors.h"
 @import UIKit;
 
 @interface IWCAboutPageBuilder : NSObject
 
-- (NSArray <UIView *> *)buildAboutPage:(SelectionHandler) handler;
+- (NSArray <UIView *> *)buildAboutPageFromViewController:(UIViewController *)presentingViewController handler:(SelectionHandler) handler;
 
 @end
