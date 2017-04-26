@@ -10,4 +10,6 @@
 
 @implementation IWCShop
 
+@synthesize name, ident, unformattedPhone, phoneNumber, twitter, formattedAddress, addressArray, urlReadyAddress, lat, lon, menuURL;
+
 @end

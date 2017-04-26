@@ -6,7 +6,7 @@
 //  Copyright © 2015 Adam Boyd. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MapViewController.h"
 #import "UIImage+ImageEffects.h"
 #import "UIColor+IWCColors.h"
 
@@ -17,11 +17,7 @@
 #define kIntroPage1Image [UIImage imageNamed:@"Coffee.png"]
 #define kIntroPage2Image [UIImage imageNamed:@"CoffeeArt.png"]
 
-@interface IWCViewController ()
-
-@end
-
-@implementation ViewController
+@implementation MapViewController
 
 @synthesize mainMapView;
 @synthesize bottomToolbar;
@@ -34,7 +30,16 @@
     
     [[IWCDataController sharedController] setIwcDelegate:self];
     
-    self.titleLabel.text = @"I Want Tea";
+    [self.navigationItem setTitle:@"I Want Tea"];
+    [[self.navigationController navigationBar] setTintColor:[UIColor tiltBlue]];
+    [[self.navigationItem backBarButtonItem] setTitle:@"Map"];
+    [self.navigationItem setBackBarButtonItem: [[UIBarButtonItem alloc] initWithTitle:@"Map"
+                                      style:UIBarButtonItemStylePlain
+                                     target:nil
+                                     action:nil]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor tiltBlue]];
+    [self.navigationController.navigationBar setTranslucent:NO];
     
     //Map View
     mainMapView = [[MKMapView alloc] init];
@@ -43,7 +48,7 @@
     mainMapView.delegate = self;
     
     //0px from nav bar bottom, 0px from left, right, 0px from bottom
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mainMapView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.navBar attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mainMapView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mainMapView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mainMapView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mainMapView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
@@ -134,7 +139,7 @@
     
     if ([self setUpAndShowIntroViews]) {
         //Set the opacity to 0 if we are showing an intro view so we can animate it in
-        self.navBar.alpha = 0;
+        [self.navigationController.navigationBar setHidden:YES];
         mainMapView.alpha = 0;
         bottomToolbar.alpha = 0;
         searchAreaButton.alpha = 0;
@@ -235,7 +240,8 @@
     NSString *toReplaceString = mode == SearchModeTea ? @"Tea" : @"Coffee";
     
     //Now title at shop should say "I Want Coffee" or "I Want Tea"
-    self.titleLabel.text = [self.titleLabel.text stringByReplacingOccurrencesOfString:toFindString withString:toReplaceString];
+    NSString *oldTitle = [self.navigationItem title];
+    [self.navigationItem setTitle:[oldTitle stringByReplacingOccurrencesOfString:toFindString withString:toReplaceString]];
     
     //Removing all the annotations
     if (shouldSearchAgain) {
@@ -257,7 +263,7 @@
     
     //Animating the views in
     [UIView animateWithDuration:1.f animations:^{
-        self.navBar.alpha = 1;
+        [self.navigationController.navigationBar setHidden:NO];
         mainMapView.alpha = 1;
         bottomToolbar.alpha = 1;
     }];
@@ -274,8 +280,7 @@
         IWCMapAnnotation *currentAnnotation = (IWCMapAnnotation *)annotation;
         
         IWCShopDetailViewController *shopViewController = [[IWCShopDetailViewController alloc] initWithShop:currentAnnotation.currentShop];
-        
-        [self presentViewController:shopViewController animated:YES completion:nil];
+        [[self navigationController] pushViewController:shopViewController animated:YES];
     }
 }
 
@@ -347,7 +352,7 @@
 - (void)userAuthorizedLocationUse {
     [self startTrackingUser];
 
-    self.titleLabel.text = [self determineCorrectTitle];
+    [self.navigationItem setTitle:[self determineCorrectTitle]];
 }
 
 - (void)userDeniedLocationUse {
@@ -358,7 +363,7 @@
     NSString *titleString = [self determineCorrectTitle];
     titleString = [titleString stringByAppendingString:@" - No GPS"];
     
-    self.titleLabel.text = titleString;
+    [self.navigationItem setTitle:[self determineCorrectTitle]];
 }
 
 - (void)showLoadingHUD {

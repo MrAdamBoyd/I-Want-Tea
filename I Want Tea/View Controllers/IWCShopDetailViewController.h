@@ -7,16 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SafariServices/SafariServices.h>
 #import "UIColor+IWCColors.h"
 #import "IWCShop.h"
-#import "IWCViewController.h"
 #import "IWCDetailTableViewCell.h"
 
-@interface IWCShopDetailViewController : IWCViewController <UITableViewDataSource, UITableViewDelegate>
+@interface IWCShopDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) IWCShop *shop;
 @property (nonatomic, strong) UITableView *detailTableView;
-@property (nonatomic, strong) UIButton *closeButton;
 @property (nonatomic, strong) NSMutableArray<NSString *> *titleArray;
 @property (nonatomic, strong) NSMutableArray<NSString *> *descArray;
 @property (nonatomic, strong) NSMutableArray<NSString *> *actionArray;

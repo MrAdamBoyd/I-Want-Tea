@@ -7,20 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "UIColor+IWCColors.h"
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
-//--TODO:Details on the detail view controller
-//--TODO:Redo search in new area
-//--TODO:Progress HUD
-//--TODO:Move back to GPS and re search
-//--TODO:GPS always when opening app
-//--TODO:Screen when no GPS
-//--TODO:About screen from info button on toolbar
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

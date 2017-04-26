@@ -17,7 +17,7 @@
 		66959F111BB4EB1400B4A1E5 /* UIColor+IWCColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959F101BB4EB1400B4A1E5 /* UIColor+IWCColors.m */; };
 		66A770711BB4AA9100DD7A1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770701BB4AA9100DD7A1B /* main.m */; };
 		66A770741BB4AA9100DD7A1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770731BB4AA9100DD7A1B /* AppDelegate.m */; };
-		66A770771BB4AA9100DD7A1B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770761BB4AA9100DD7A1B /* ViewController.m */; };
+		66A770771BB4AA9100DD7A1B /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A770761BB4AA9100DD7A1B /* MapViewController.m */; };
 		66A7707A1BB4AA9100DD7A1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66A770781BB4AA9100DD7A1B /* Main.storyboard */; };
 		66A7707C1BB4AA9100DD7A1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66A7707B1BB4AA9100DD7A1B /* Assets.xcassets */; };
 		66A7707F1BB4AA9100DD7A1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66A7707D1BB4AA9100DD7A1B /* LaunchScreen.storyboard */; };
@@ -27,7 +27,6 @@
 		66AA24821BB606CA004977C2 /* IWCShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24811BB606CA004977C2 /* IWCShop.m */; };
 		66AA24861BB62A84004977C2 /* IWCMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24851BB62A84004977C2 /* IWCMapAnnotation.m */; };
 		66AA24891BB62FB2004977C2 /* IWCShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA24881BB62FB2004977C2 /* IWCShopDetailViewController.m */; };
-		66AA248C1BB63366004977C2 /* IWCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA248B1BB63366004977C2 /* IWCViewController.m */; };
 		66AA248F1BB74ADE004977C2 /* IWCDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA248E1BB74ADD004977C2 /* IWCDetailTableViewCell.m */; };
 		88D1675A382C69009E73633F /* libPods-I Want Tea.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF25A270EE5B1E5C8F30C49 /* libPods-I Want Tea.a */; };
 /* End PBXBuildFile section */
@@ -68,8 +67,8 @@
 		66A770701BB4AA9100DD7A1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		66A770721BB4AA9100DD7A1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		66A770731BB4AA9100DD7A1B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		66A770751BB4AA9100DD7A1B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = "View Controllers/ViewController.h"; sourceTree = "<group>"; };
-		66A770761BB4AA9100DD7A1B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "View Controllers/ViewController.m"; sourceTree = "<group>"; };
+		66A770751BB4AA9100DD7A1B /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = "View Controllers/MapViewController.h"; sourceTree = "<group>"; };
+		66A770761BB4AA9100DD7A1B /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = "View Controllers/MapViewController.m"; sourceTree = "<group>"; };
 		66A770791BB4AA9100DD7A1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		66A7707B1BB4AA9100DD7A1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66A7707E1BB4AA9100DD7A1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -88,8 +87,6 @@
 		66AA24851BB62A84004977C2 /* IWCMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCMapAnnotation.m; path = Views/IWCMapAnnotation.m; sourceTree = "<group>"; };
 		66AA24871BB62FB2004977C2 /* IWCShopDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCShopDetailViewController.h; path = "View Controllers/IWCShopDetailViewController.h"; sourceTree = "<group>"; };
 		66AA24881BB62FB2004977C2 /* IWCShopDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCShopDetailViewController.m; path = "View Controllers/IWCShopDetailViewController.m"; sourceTree = "<group>"; };
-		66AA248A1BB63366004977C2 /* IWCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCViewController.h; path = "View Controllers/IWCViewController.h"; sourceTree = "<group>"; };
-		66AA248B1BB63366004977C2 /* IWCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCViewController.m; path = "View Controllers/IWCViewController.m"; sourceTree = "<group>"; };
 		66AA248D1BB74ADD004977C2 /* IWCDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCDetailTableViewCell.h; path = Views/IWCDetailTableViewCell.h; sourceTree = "<group>"; };
 		66AA248E1BB74ADD004977C2 /* IWCDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCDetailTableViewCell.m; path = Views/IWCDetailTableViewCell.m; sourceTree = "<group>"; };
 		9DF25A270EE5B1E5C8F30C49 /* libPods-I Want Tea.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-I Want Tea.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,12 +131,10 @@
 		66959EB81BB4B4DD00B4A1E5 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				66AA248A1BB63366004977C2 /* IWCViewController.h */,
-				66AA248B1BB63366004977C2 /* IWCViewController.m */,
 				66AA24871BB62FB2004977C2 /* IWCShopDetailViewController.h */,
 				66AA24881BB62FB2004977C2 /* IWCShopDetailViewController.m */,
-				66A770751BB4AA9100DD7A1B /* ViewController.h */,
-				66A770761BB4AA9100DD7A1B /* ViewController.m */,
+				66A770751BB4AA9100DD7A1B /* MapViewController.h */,
+				66A770761BB4AA9100DD7A1B /* MapViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -465,13 +460,12 @@
 				66959EC11BB4B9A600B4A1E5 /* IWCDataController.m in Sources */,
 				66AA24891BB62FB2004977C2 /* IWCShopDetailViewController.m in Sources */,
 				66AA24861BB62A84004977C2 /* IWCMapAnnotation.m in Sources */,
-				66A770771BB4AA9100DD7A1B /* ViewController.m in Sources */,
+				66A770771BB4AA9100DD7A1B /* MapViewController.m in Sources */,
 				66959F0E1BB4D62700B4A1E5 /* UIImage+ImageEffects.m in Sources */,
 				662D038B1BB76BFE0035AD9E /* IWCAboutPageBuilder.m in Sources */,
 				66A770741BB4AA9100DD7A1B /* AppDelegate.m in Sources */,
 				66AA24821BB606CA004977C2 /* IWCShop.m in Sources */,
 				66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */,
-				66AA248C1BB63366004977C2 /* IWCViewController.m in Sources */,
 				66A770711BB4AA9100DD7A1B /* main.m in Sources */,
 				66AA247F1BB60697004977C2 /* FoursquareResponseParser.m in Sources */,
 				66959F111BB4EB1400B4A1E5 /* UIColor+IWCColors.m in Sources */,

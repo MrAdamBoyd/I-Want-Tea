@@ -12,13 +12,12 @@
 #import "IWCDataController.h"
 #import "IWCMapAnnotation.h"
 #import "IWCShopDetailViewController.h"
-#import "IWCViewController.h"
 #import "MBProgressHUD.h"
 #import "IWCAboutPageBuilder.h"
 #import "CNPPopupController.h"
 #import "NYSegmentedControl.h"
 
-@interface ViewController : IWCViewController <EAIntroDelegate, IWCLocationListenerDelegate, MKMapViewDelegate>
+@interface MapViewController : UIViewController <EAIntroDelegate, IWCLocationListenerDelegate, MKMapViewDelegate>
 
 @property (nonatomic, strong) MKMapView *mainMapView;
 @property (nonatomic, strong) UIToolbar *bottomToolbar;

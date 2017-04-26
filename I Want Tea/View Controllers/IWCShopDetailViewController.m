@@ -12,7 +12,6 @@
 
 @synthesize shop;
 @synthesize detailTableView;
-@synthesize closeButton;
 @synthesize titleArray;
 @synthesize descArray;
 @synthesize actionArray;
@@ -64,21 +63,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.titleLabel.text = shop.name;
-    
-    //Setting the close button
-    closeButton = [[UIButton alloc] init];
-    [closeButton setTranslatesAutoresizingMaskIntoConstraints:false];
-    [closeButton addTarget:self action:@selector(closeDetailViewController) forControlEvents:UIControlEventTouchUpInside];
-    [self.navBar addSubview:closeButton];
-    
-    //Setting the text
-    [closeButton setTitle:@"Close" forState:UIControlStateNormal];
-    [closeButton setTitleColor:[UIColor colorWithWhite:1 alpha:.5] forState:UIControlStateHighlighted];
-    
-    //10px from right, centered on x,
-    [self.navBar addConstraint:[NSLayoutConstraint constraintWithItem:closeButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.navBar attribute:NSLayoutAttributeCenterY multiplier:1 constant:-2]];
-    [self.navBar addConstraint:[NSLayoutConstraint constraintWithItem:closeButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.navBar attribute:NSLayoutAttributeRight multiplier:1 constant:-10]];
+    [self.navigationItem setTitle:[shop name]];
     
     //Detail view
     detailTableView = [[UITableView alloc] init];
@@ -93,7 +78,8 @@
     detailTableView.estimatedRowHeight = 100;
     
     //0px below navBar, 0px on left, right, bottom
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:detailTableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.navBar attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:detailTableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:detailTableView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:detailTableView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:detailTableView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
@@ -103,10 +89,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)closeDetailViewController {
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark StatusBarStyle
