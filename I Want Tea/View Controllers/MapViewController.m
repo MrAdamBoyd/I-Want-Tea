@@ -228,27 +228,28 @@
     //Remove all annotations first
     [mainMapView removeAnnotations:mainMapView.annotations];
     
-    [[IWCDataController sharedController] searchForNearbyCoffeeOrTea:mainMapView.centerCoordinate];
+    IWCNetworkRequestHandler *requestHandler = [[IWCNetworkRequestHandler alloc] initWithCoordinate:mainMapView.centerCoordinate andSearchMode:[IWCDataController sharedController].searchMode];
+    [requestHandler startSearchWithDelegate:self];
 }
 
 //Selecting coffee or tea
 - (void)segmentSelected:(UISegmentedControl *)sender {
     BOOL shouldSearchAgain = [mainMapView.annotations count] > 0 ? YES : NO; //Search again if we have pins on the map
-    SearchMode mode = sender.selectedSegmentIndex == 0 ? SearchModeTea : SearchModeCoffee;
+    SearchMode searchMode = sender.selectedSegmentIndex == 0 ? SearchModeTea : SearchModeCoffee;
     
-    NSString *toFindString = mode == SearchModeTea ? @"Coffee" : @"Tea";
-    NSString *toReplaceString = mode == SearchModeTea ? @"Tea" : @"Coffee";
+    NSString *toFindString = searchMode == SearchModeTea ? @"Coffee" : @"Tea";
+    NSString *toReplaceString = searchMode == SearchModeTea ? @"Tea" : @"Coffee";
     
     //Now title at shop should say "I Want Coffee" or "I Want Tea"
     NSString *oldTitle = [self.navigationItem title];
     [self.navigationItem setTitle:[oldTitle stringByReplacingOccurrencesOfString:toFindString withString:toReplaceString]];
     
+    [[IWCDataController sharedController] setSearchMode:searchMode];
+    
     //Removing all the annotations
     if (shouldSearchAgain) {
-        [mainMapView removeAnnotations:mainMapView.annotations];
+        [self searchInArea];
     }
-    
-    [[IWCDataController sharedController] setMode:mode shouldSearchAgain:shouldSearchAgain withPoint:mainMapView.centerCoordinate];
 }
 
 #pragma mark EAIntroDelegate
@@ -311,7 +312,7 @@
         
         //We have annotation on the map, research
         if ([mainMapView.annotations count] > 0 && [[IWCDataController sharedController] savedLocation]) {
-            [[IWCDataController sharedController] searchForNearbyCoffeeOrTea:[[IWCDataController sharedController] savedLocation].coordinate];
+            [self searchInArea];
         }
         
     } else if (mode == MKUserTrackingModeNone) {
@@ -331,7 +332,7 @@
     return NO;
 }
 
-#pragma mark IWCLocationListenerDelegate
+#pragma mark IWCNetworkRequestDelegate
 
 //Adding all the shops to the screen
 - (void)addShopsToScreen:(NSArray<IWCShop *> *)shops {
@@ -349,6 +350,16 @@
     }
 }
 
+- (void)showLoadingHUD {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
+
+-(void)hideLoadingHUD {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+
+#pragma mark IWCLocationListenerDelegate
 - (void)userAuthorizedLocationUse {
     [self startTrackingUser];
 
@@ -364,14 +375,6 @@
     titleString = [titleString stringByAppendingString:@" - No GPS"];
     
     [self.navigationItem setTitle:[self determineCorrectTitle]];
-}
-
-- (void)showLoadingHUD {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-}
-
--(void)hideLoadingHUD {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 //Getting the correct title based on whether the user is searching for coffee or tea

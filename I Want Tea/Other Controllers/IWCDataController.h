@@ -11,20 +11,12 @@
 @import CoreLocation;
 #import "AFNetworking.h"
 #import "FoursquareResponseParser.h"
+#import "IWCNetworkRequestHandler.h"
 
-//Search mode
-typedef enum SearchMode {
-    SearchModeCoffee,
-    SearchModeTea
-} SearchMode;
-
-@protocol IWCLocationListenerDelegate <NSObject>
+@protocol IWCLocationListenerDelegate <NSObject, IWCNetworkRequestDelegate>
 
 - (void)userAuthorizedLocationUse;
 - (void)userDeniedLocationUse;
-- (void)addShopsToScreen:(NSArray<IWCShop *> *)shops;
-- (void)showLoadingHUD;
-- (void)hideLoadingHUD;
 
 @end
 
@@ -36,15 +28,13 @@ typedef enum SearchMode {
 
 @property (nonatomic, strong) CurrentUser *currentUser;
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property(nonatomic, strong) CLLocation *savedLocation;
-@property (assign) id<IWCLocationListenerDelegate> iwcDelegate;
-@property (nonatomic, assign) SearchMode mode;
+@property (nonatomic, strong) CLLocation *savedLocation;
+@property (nonatomic, weak) id<IWCLocationListenerDelegate> iwcDelegate;
+@property (nonatomic) SearchMode searchMode;
 
-+ (id)sharedController;
++ (instancetype)sharedController;
 
 - (BOOL)getUserFirstTimeOpeningApp;
 - (void)setUserFirstTimeOpeningApp:(BOOL) firstTime;
-- (void)searchForNearbyCoffeeOrTea:(CLLocationCoordinate2D) coordinateToSearch;
-- (void)setMode:(SearchMode)newMode shouldSearchAgain:(BOOL)yesOrNo withPoint:(CLLocationCoordinate2D)location;
 
 @end

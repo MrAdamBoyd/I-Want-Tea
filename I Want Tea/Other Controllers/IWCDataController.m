@@ -10,17 +10,13 @@
 
 #define kCurrentUserKey @"kCurrentUserKey"
 
-#define kFSClientID @"OS1VJWS2NDEVGRGZFR2ZPSCHFHH1XKC1LGVUZRTICRL2KZ2O"
-#define kFSClientSecret @"TRYE2KREOYL0IKHANOXDTLGFI2KN0CRL54WG2KRBUINOIPTO"
-#define kFSVersion @"20130815"
-
 @implementation IWCDataController
 
 @synthesize currentUser;
 @synthesize locationManager;
 @synthesize iwcDelegate;
 @synthesize savedLocation;
-@synthesize mode;
+@synthesize searchMode;
 
 - (id)init {
     if (self = [super init]) {
@@ -38,6 +34,8 @@
         
         [self saveCurrentUser];
         
+        self.searchMode = SearchModeTea;
+        
         //Setting up the CLLocationManager
         locationManager = [[CLLocationManager alloc] init];
         locationManager.delegate = self;
@@ -48,7 +46,7 @@
 
 # pragma mark Singleton methods
 
-+ (id)sharedController {
++ (instancetype)sharedController {
     static IWCDataController *sharedIWCDataController = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -97,72 +95,8 @@
     if ((!savedLocation || [savedLocation distanceFromLocation:newLocation] > 50) && newLocation.horizontalAccuracy < 75) {
         savedLocation = newLocation;
         
-        [self searchForNearbyCoffeeOrTea:savedLocation.coordinate];
-    }
-}
-
-//Building the lat, lon string for the parameters
--(NSString *)buildLocationString:(CLLocationCoordinate2D) coordinate {
-    NSString *locationString = [NSString stringWithFormat:@"%f,%f", coordinate.latitude, coordinate.longitude];
-    return locationString;
-}
-
-//Building the parameters for the search
-- (NSDictionary *)buildParameters:(CLLocationCoordinate2D) coordinate {
-    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-    
-    //API information
-    [parameters setValue:kFSClientID forKey:@"client_id"];
-    [parameters setValue:kFSClientSecret forKey:@"client_secret"];
-    [parameters setValue:kFSVersion forKey:@"v"];
-    
-    NSString *locationString = [self buildLocationString:coordinate];
-    [parameters setValue:locationString forKey:@"ll"];
-    
-    NSString *searchModeString = mode == SearchModeCoffee ? @"coffee" : @"tea";
-    [parameters setValue:searchModeString forKey:@"query"];
-    
-    return parameters;
-}
-
-//Makes a search request on the Foursquare API. If the request is successful, it will add the pins to the MKMapView on the ViewController.
-- (void)searchForNearbyCoffeeOrTea:(CLLocationCoordinate2D) coordinateToSearch {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = [self buildParameters:coordinateToSearch];
-    
-    //Tell VC to show HUD
-    if (self.iwcDelegate) {
-        [self.iwcDelegate showLoadingHUD];
-    }
-    
-    
-    [manager GET:@"https://api.foursquare.com/v2/venues/search" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSDictionary *apiResponse = (NSDictionary *)responseObject;
-        
-        FoursquareResponseParser *parser = [[FoursquareResponseParser alloc] init];
-        NSArray *shops = [parser parseAPIResponse:apiResponse];
-        
-        //Add the shops to the screen of the delegate (the view controller)
-        if (self.iwcDelegate) {
-            [self.iwcDelegate addShopsToScreen:shops];
-        }
-        
-        if (self.iwcDelegate) {
-            [self.iwcDelegate hideLoadingHUD];
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-}
-
-- (void)setMode:(SearchMode)newMode shouldSearchAgain:(BOOL)yesOrNo withPoint:(CLLocationCoordinate2D)location {
-    self.mode = newMode;
-    
-    //We should search again
-    if (yesOrNo) {
-        [self searchForNearbyCoffeeOrTea:location];
+        IWCNetworkRequestHandler *handler = [[IWCNetworkRequestHandler alloc] initWithCoordinate:savedLocation.coordinate andSearchMode:self.searchMode];
+        [handler startSearchWithDelegate:self.iwcDelegate];
     }
 }
 

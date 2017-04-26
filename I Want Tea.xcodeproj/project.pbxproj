@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		662D038B1BB76BFE0035AD9E /* IWCAboutPageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 662D038A1BB76BFE0035AD9E /* IWCAboutPageBuilder.m */; };
 		662D038D1BB78B6B0035AD9E /* Picture Attributions in Resources */ = {isa = PBXBuildFile; fileRef = 662D038C1BB78B6B0035AD9E /* Picture Attributions */; };
+		667658221EB0425900F708DC /* IWCNetworkRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 667658211EB0425900F708DC /* IWCNetworkRequestHandler.m */; };
 		66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */; };
 		66959EC11BB4B9A600B4A1E5 /* IWCDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66959EC01BB4B9A600B4A1E5 /* IWCDataController.m */; };
 		66959EC61BB4D33400B4A1E5 /* Coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 66959EC51BB4D33400B4A1E5 /* Coffee.png */; };
@@ -53,6 +54,8 @@
 		662D03891BB76BFE0035AD9E /* IWCAboutPageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCAboutPageBuilder.h; path = Functional/IWCAboutPageBuilder.h; sourceTree = "<group>"; };
 		662D038A1BB76BFE0035AD9E /* IWCAboutPageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCAboutPageBuilder.m; path = Functional/IWCAboutPageBuilder.m; sourceTree = "<group>"; };
 		662D038C1BB78B6B0035AD9E /* Picture Attributions */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Picture Attributions"; sourceTree = "<group>"; };
+		667658201EB0425900F708DC /* IWCNetworkRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCNetworkRequestHandler.h; path = "Other Controllers/IWCNetworkRequestHandler.h"; sourceTree = "<group>"; };
+		667658211EB0425900F708DC /* IWCNetworkRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWCNetworkRequestHandler.m; path = "Other Controllers/IWCNetworkRequestHandler.m"; sourceTree = "<group>"; };
 		66959EBC1BB4B57C00B4A1E5 /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentUser.h; path = Models/CurrentUser.h; sourceTree = "<group>"; };
 		66959EBD1BB4B57C00B4A1E5 /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentUser.m; path = Models/CurrentUser.m; sourceTree = "<group>"; };
 		66959EBF1BB4B9A600B4A1E5 /* IWCDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IWCDataController.h; path = "Other Controllers/IWCDataController.h"; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 			children = (
 				66959EBF1BB4B9A600B4A1E5 /* IWCDataController.h */,
 				66959EC01BB4B9A600B4A1E5 /* IWCDataController.m */,
+				667658201EB0425900F708DC /* IWCNetworkRequestHandler.h */,
+				667658211EB0425900F708DC /* IWCNetworkRequestHandler.m */,
 			);
 			name = "Other Controllers";
 			sourceTree = "<group>";
@@ -466,6 +471,7 @@
 				66A770741BB4AA9100DD7A1B /* AppDelegate.m in Sources */,
 				66AA24821BB606CA004977C2 /* IWCShop.m in Sources */,
 				66959EBE1BB4B57C00B4A1E5 /* CurrentUser.m in Sources */,
+				667658221EB0425900F708DC /* IWCNetworkRequestHandler.m in Sources */,
 				66A770711BB4AA9100DD7A1B /* main.m in Sources */,
 				66AA247F1BB60697004977C2 /* FoursquareResponseParser.m in Sources */,
 				66959F111BB4EB1400B4A1E5 /* UIColor+IWCColors.m in Sources */,
