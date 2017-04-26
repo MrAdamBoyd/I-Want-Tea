@@ -7,7 +7,7 @@
 //
 
 #import "IWCAboutPageBuilder.h"
-#define kIWCWebsiteLink @"http:adamjboyd.com"
+#define kIWCWebsiteLink @"https://github.com/MrAdamBoyd/I-Want-Tea"
 
 @implementation IWCAboutPageBuilder
 
