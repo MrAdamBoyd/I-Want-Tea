@@ -3,7 +3,6 @@
 
 target 'I Want Tea' do
   pod 'EAIntroView'
-  pod "AFNetworking"
   pod 'MBProgressHUD'
   pod 'CNPPopupController'
   pod 'NYSegmentedControl'

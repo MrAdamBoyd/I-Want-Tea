@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 @import CoreLocation;
-#import "AFNetworking.h"
 #import "FoursquareResponseParser.h"
 
 //Search mode

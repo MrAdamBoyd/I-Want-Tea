@@ -51,31 +51,34 @@
 
 //Makes a search request on the Foursquare API. If the request is successful, it will add the pins to the MKMapView on the ViewController.
 - (void)startSearchWithDelegate:(__weak id<IWCNetworkRequestDelegate>)delegate {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = [self buildParameters:self.searchingCoordinate];
-    
-    //Tell VC to show HUD
-    if (delegate) {
-        [delegate showLoadingHUD];
-    }
+    NSURLComponents *urlComponents = [NSURLComponents componentsWithString:@"https://api.foursquare.com/v2/venues/search"];
     
     
-    [manager GET:@"https://api.foursquare.com/v2/venues/search" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSDictionary *apiResponse = (NSDictionary *)responseObject;
-        
-        FoursquareResponseParser *parser = [[FoursquareResponseParser alloc] init];
-        NSArray *shops = [parser parseAPIResponse:apiResponse];
-        
-        //Add the shops to the screen of the delegate (the view controller)
-        if (delegate) {
-            [delegate addShopsToScreen:shops];
-            [delegate hideLoadingHUD];
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    NSDictionary *parameters = [self buildParameters:self.searchingCoordinate];
+//    
+//    //Tell VC to show HUD
+//    if (delegate) {
+//        [delegate showLoadingHUD];
+//    }
+//    
+//    
+//    [manager GET:@"https://api.foursquare.com/v2/venues/search" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//        NSDictionary *apiResponse = (NSDictionary *)responseObject;
+//        
+//        FoursquareResponseParser *parser = [[FoursquareResponseParser alloc] init];
+//        NSArray *shops = [parser parseAPIResponse:apiResponse];
+//        
+//        //Add the shops to the screen of the delegate (the view controller)
+//        if (delegate) {
+//            [delegate addShopsToScreen:shops];
+//            [delegate hideLoadingHUD];
+//        }
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"Error: %@", error);
+//    }];
 }
 
 
