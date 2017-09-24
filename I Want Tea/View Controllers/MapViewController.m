@@ -137,13 +137,7 @@
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:searchAreaButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:175]];
     
     
-    if ([self setUpAndShowIntroViews]) {
-        //Set the opacity to 0 if we are showing an intro view so we can animate it in
-        [self.navigationController.navigationBar setHidden:YES];
-        mainMapView.alpha = 0;
-        bottomToolbar.alpha = 0;
-        searchAreaButton.alpha = 0;
-    }
+    [self setUpAndShowIntroViewsIfNeeded];
     
     //If we have permission, start tracking the user
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
@@ -171,7 +165,7 @@
 }
 
 //Shows the intro views if the user hasn't opened the app and/or if we don't have authorization to use gps
-- (BOOL)setUpAndShowIntroViews {
+- (BOOL)setUpAndShowIntroViewsIfNeeded {
     NSMutableArray<EAIntroPage *> *introViewArray = [[NSMutableArray alloc] init];
     
     if ([[IWCDataController sharedController] getUserFirstTimeOpeningApp]) {
@@ -204,7 +198,7 @@
         EAIntroView *introView = [[EAIntroView alloc] initWithFrame:frameRect];
         [introView setPages:introViewArray];
         [introView setDelegate:self];
-        [introView showInView:self.view animateDuration:0];
+        [introView showInView:[[self navigationController] view] animateDuration:0];
         
         //We did show intro views
         return YES;
@@ -256,20 +250,13 @@
 
 #pragma mark EAIntroDelegate
 
-- (void)introDidFinish:(EAIntroView *)introView {
+- (void)introDidFinish:(EAIntroView *)introView wasSkipped:(BOOL)wasSkipped {
     [[IWCDataController sharedController] setUserFirstTimeOpeningApp:NO];
-    
+
     // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
     if ([[[IWCDataController sharedController] locationManager] respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [[[IWCDataController sharedController] locationManager] requestWhenInUseAuthorization];
     }
-    
-    //Animating the views in
-    [UIView animateWithDuration:1.f animations:^{
-        [self.navigationController.navigationBar setHidden:NO];
-        mainMapView.alpha = 1;
-        bottomToolbar.alpha = 1;
-    }];
 }
 
 #pragma mark MKMapViewDelegate
@@ -361,11 +348,15 @@
 #pragma mark MBProgressHUD
 
 - (void)showLoadingHUD {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    });
 }
 
 -(void)hideLoadingHUD {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    });
 }
 
 
