@@ -19,8 +19,7 @@ typedef enum SearchMode {
 @protocol IWCNetworkRequestDelegate <NSObject>
 
 - (void)addShopsToScreen:(NSArray<IWCShop *> *)shops;
-- (void)showLoadingHUD;
-- (void)hideLoadingHUD;
+- (void)networkRequestEncounteredError:(NSError *)error;
 
 @end
 

@@ -202,8 +202,8 @@
     if (introViewArray.count > 0) {
         CGRect frameRect = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height + 10);
         EAIntroView *introView = [[EAIntroView alloc] initWithFrame:frameRect];
-        introView.pages = introViewArray;
-        introView.delegate = self;
+        [introView setPages:introViewArray];
+        [introView setDelegate:self];
         [introView showInView:self.view animateDuration:0];
         
         //We did show intro views
@@ -225,6 +225,8 @@
 #pragma mark Search methods
 //"Search in Area" button touched
 - (void)searchInArea {
+    [self showLoadingHUD];
+    
     //Remove all annotations first
     [mainMapView removeAnnotations:mainMapView.annotations];
     
@@ -336,6 +338,8 @@
 
 //Adding all the shops to the screen
 - (void)addShopsToScreen:(NSArray<IWCShop *> *)shops {
+    [self hideLoadingHUD];
+    
     for (IWCShop *shop in shops) {
         CLLocationCoordinate2D shopPoint;
         shopPoint.latitude = [shop.lat floatValue];
@@ -349,6 +353,12 @@
         [mainMapView addAnnotation:annotation];
     }
 }
+
+- (void)networkRequestEncounteredError:(NSError *)error {
+    [self hideLoadingHUD];
+}
+
+#pragma mark MBProgressHUD
 
 - (void)showLoadingHUD {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];

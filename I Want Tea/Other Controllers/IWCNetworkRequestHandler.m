@@ -32,54 +32,59 @@
 }
 
 //Building the parameters for the search
-- (NSDictionary *)buildParameters:(CLLocationCoordinate2D) coordinate {
-    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-    
-    //API information
-    [parameters setValue:kFSClientID forKey:@"client_id"];
-    [parameters setValue:kFSClientSecret forKey:@"client_secret"];
-    [parameters setValue:kFSVersion forKey:@"v"];
-    
-    NSString *locationString = [self buildLocationString:coordinate];
-    [parameters setValue:locationString forKey:@"ll"];
-    
-    NSString *searchModeString = self.searchMode == SearchModeCoffee ? @"coffee" : @"tea";
-    [parameters setValue:searchModeString forKey:@"query"];
-    
-    return parameters;
+- (NSArray <NSURLQueryItem *> *)buildParameters:(CLLocationCoordinate2D) coordinate {
+    return @[[NSURLQueryItem queryItemWithName:@"client_id" value:kFSClientID],
+             [NSURLQueryItem queryItemWithName:@"client_secret" value:kFSClientID],
+             [NSURLQueryItem queryItemWithName:@"v" value:kFSClientID],
+             [NSURLQueryItem queryItemWithName:@"ll" value:[self buildLocationString:coordinate]],
+             [NSURLQueryItem queryItemWithName:@"query" value:self.searchMode == SearchModeCoffee ? @"coffee" : @"tea"]];
 }
 
 //Makes a search request on the Foursquare API. If the request is successful, it will add the pins to the MKMapView on the ViewController.
 - (void)startSearchWithDelegate:(__weak id<IWCNetworkRequestDelegate>)delegate {
     NSURLComponents *urlComponents = [NSURLComponents componentsWithString:@"https://api.foursquare.com/v2/venues/search"];
     
+    [urlComponents setQueryItems:[self buildParameters:self.searchingCoordinate]];
     
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    NSDictionary *parameters = [self buildParameters:self.searchingCoordinate];
-//    
-//    //Tell VC to show HUD
-//    if (delegate) {
-//        [delegate showLoadingHUD];
-//    }
-//    
-//    
-//    [manager GET:@"https://api.foursquare.com/v2/venues/search" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
-//        NSDictionary *apiResponse = (NSDictionary *)responseObject;
-//        
-//        FoursquareResponseParser *parser = [[FoursquareResponseParser alloc] init];
-//        NSArray *shops = [parser parseAPIResponse:apiResponse];
-//        
-//        //Add the shops to the screen of the delegate (the view controller)
-//        if (delegate) {
-//            [delegate addShopsToScreen:shops];
-//            [delegate hideLoadingHUD];
-//        }
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"Error: %@", error);
-//    }];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    
+    [[session dataTaskWithURL:urlComponents.URL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        if (!error) {
+            //Success
+            if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+                NSError *jsonError;
+                NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+                
+                if (jsonError) {
+                    //JSON parsing error
+                    if (delegate) {
+                        [delegate networkRequestEncounteredError:jsonError];
+                    }
+                    
+                } else {
+                    //JSON parsing worked
+                    FoursquareResponseParser *parser = [[FoursquareResponseParser alloc] init];
+                    NSArray *shops = [parser parseAPIResponse:jsonDictionary];
+                    
+                    if (delegate) {
+                        [delegate addShopsToScreen:shops];
+                    }
+                    
+                }
+            } else {
+                //Web server error
+                if (delegate) {
+                    [delegate networkRequestEncounteredError:nil];
+                }
+            }
+        } else {
+            //Other error
+            if (delegate) {
+                [delegate networkRequestEncounteredError:error];
+            }
+        }
+    }] resume];
 }
-
 
 @end
