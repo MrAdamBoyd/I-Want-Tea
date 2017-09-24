@@ -65,6 +65,13 @@
     
     [self.navigationItem setTitle:[shop name]];
     
+    if (@available(iOS 11, *)) {
+        //Large titles for iOS 11
+        self.navigationController.navigationBar.prefersLargeTitles = YES;
+        self.navigationController.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAlways;
+        self.navigationController.navigationBar.largeTitleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    }
+        
     //Detail view
     detailTableView = [[UITableView alloc] init];
     [self.view addSubview:detailTableView];
