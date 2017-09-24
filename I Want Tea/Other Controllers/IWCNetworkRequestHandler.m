@@ -34,8 +34,8 @@
 //Building the parameters for the search
 - (NSArray <NSURLQueryItem *> *)buildParameters:(CLLocationCoordinate2D) coordinate {
     return @[[NSURLQueryItem queryItemWithName:@"client_id" value:kFSClientID],
-             [NSURLQueryItem queryItemWithName:@"client_secret" value:kFSClientID],
-             [NSURLQueryItem queryItemWithName:@"v" value:kFSClientID],
+             [NSURLQueryItem queryItemWithName:@"client_secret" value:kFSClientSecret],
+             [NSURLQueryItem queryItemWithName:@"v" value:kFSVersion],
              [NSURLQueryItem queryItemWithName:@"ll" value:[self buildLocationString:coordinate]],
              [NSURLQueryItem queryItemWithName:@"query" value:self.searchMode == SearchModeCoffee ? @"coffee" : @"tea"]];
 }
