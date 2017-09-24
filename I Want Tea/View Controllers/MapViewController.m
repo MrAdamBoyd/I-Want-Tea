@@ -326,12 +326,12 @@
 //Adding all the shops to the screen
 - (void)addShopsToScreen:(NSArray<IWCShop *> *)shops {
     [self hideLoadingHUD];
-    
+
     for (IWCShop *shop in shops) {
         CLLocationCoordinate2D shopPoint;
         shopPoint.latitude = [shop.lat floatValue];
         shopPoint.longitude = [shop.lon floatValue];
-        
+
         IWCMapAnnotation *annotation = [[IWCMapAnnotation alloc] init];
         [annotation setCoordinate:shopPoint];
         [annotation setTitle:shop.name];
@@ -341,8 +341,19 @@
     }
 }
 
+//Shows error to user in a UIAlertController
 - (void)networkRequestEncounteredError:(NSError *)error {
     [self hideLoadingHUD];
+    
+    NSString *messageString = @"An unknown error occurred. Please try again later.";
+    if (error) {
+        messageString = error.userInfo[NSLocalizedDescriptionKey];
+    }
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"A Network Error Occurred" message:messageString preferredStyle:UIAlertControllerStyleAlert];
+    
+    [controller addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 #pragma mark MBProgressHUD
