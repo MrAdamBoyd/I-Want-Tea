@@ -85,6 +85,8 @@
             }
         }
     }] resume];
+    
+    [session finishTasksAndInvalidate];
 }
 
 @end
